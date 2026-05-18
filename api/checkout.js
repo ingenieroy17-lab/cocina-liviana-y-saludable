@@ -44,6 +44,12 @@ export default async function handler(req, res) {
           pending: `${origin}/`
         },
         auto_return: 'approved',
+        notification_url: `${origin}/api/webhook`,
+        metadata: {
+          nombre: nombre,
+          apellido: apellido,
+          email: email
+        }
       }
     });
 
