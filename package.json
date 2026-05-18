@@ -1,0 +1,8 @@
+{
+  "name": "recetario-saludable",
+  "version": "1.0.0",
+  "description": "Backend para Landing Page de Ebook Saludable",
+  "dependencies": {
+    "mercadopago": "^2.0.9"
+  }
+}

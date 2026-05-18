@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cocina Liviana y Saludable — 100 Recetas para Comer Sano Todos los Días</title>
+  <meta name="description"
+    content="Ebook con 100 recetas saludables de almuerzos y cenas. Antiinflamatorias, detox, veganas y aptas celíacos. Información nutricional completa en cada receta.">
+  <link rel="stylesheet" href="css/styles.css?v=2">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥗</text></svg>">
+</head>
+
+<body>
+
+  <!-- ═══ BARRA DE CONFIANZA FIJA ═══ -->
+  <div class="trust-bar">
+    <div class="trust-bar-content">
+      <span style="font-size: 1.1rem; line-height: 1;">🔥</span>
+      <span class="trust-highlight">82% OFF</span>
+      <span>— Oferta termina en:</span>
+      <span class="trust-timer" id="countdown-timer">48:00:00</span>
+    </div>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-text">
+        <h1>Dejá de improvisar <span>lo que comés.</span></h1>
+        <p>100 recetas fáciles de almuerzos y cenas con información nutricional completa. Sabé exactamente qué cocinar,
+          cuántas calorías tiene y qué nutrientes le estás dando a tu cuerpo.</p>
+        <a href="#comprar" class="cta-btn scroll-to-checkout" id="cta-hero">
+          🛒 Sí, quiero mi Ebook + los 5 Bonos gratis!
+          <span class="cta-btn-sub">Acceso inmediato · Recibilo por email</span>
+        </a>
+      </div>
+      <div class="hero-img">
+        <div class="hero-ebook-wrapper">
+          <img src="assets/images/ebook-cover.png" alt="Ebook Cocina Liviana y Saludable" class="hero-ebook-main">
+        </div>
+        <div class="hero-bonuses-wrapper">
+          <img src="assets/images/bonos-bundle.png" alt="5 Bonos de regalo incluidos" class="hero-bonuses-img">
+        </div>
+        <div class="bundle-clarification">
+          <span class="pulse-icon">🎁</span> +5 BONOS DE REGALO INCLUÍDOS EN EL PRECIO
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TIRA DE IMÁGENES ═══ -->
+  <div class="image-strip">
+    <div class="image-strip-track">
+      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80"
+        alt="Bowl de quinoa con vegetales">
+      <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=80" alt="Ensalada fresca variada">
+      <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&q=80" alt="Plato saludable servido">
+      <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&q=80" alt="Salmón con vegetales">
+      <img src="https://images.unsplash.com/photo-1604497181015-76590d828b75?w=400&q=80" alt="Sopa de calabaza">
+      <img src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=400&q=80"
+        alt="Bowl saludable con frutas">
+      <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=400&q=80" alt="Wrap de vegetales">
+      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&q=80" alt="Ensalada mediterránea">
+      <img src="https://images.unsplash.com/photo-1551248429-40975aa4de74?w=400&q=80" alt="Tostadas con palta">
+      <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=400&q=80" alt="Plato gourmet saludable">
+      <!-- Duplicadas para loop infinito -->
+      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80"
+        alt="Bowl de quinoa con vegetales">
+      <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=80" alt="Ensalada fresca variada">
+      <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&q=80" alt="Plato saludable servido">
+      <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&q=80" alt="Salmón con vegetales">
+      <img src="https://images.unsplash.com/photo-1604497181015-76590d828b75?w=400&q=80" alt="Sopa de calabaza">
+      <img src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=400&q=80"
+        alt="Bowl saludable con frutas">
+      <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=400&q=80" alt="Wrap de vegetales">
+      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&q=80" alt="Ensalada mediterránea">
+      <img src="https://images.unsplash.com/photo-1551248429-40975aa4de74?w=400&q=80" alt="Tostadas con palta">
+      <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=400&q=80" alt="Plato gourmet saludable">
+    </div>
+  </div>
+
+  <!-- ═══ PARA VOS SI… ═══ -->
+  <section class="identify" id="para-vos">
+    <div class="container">
+      <h2 class="section-title fade-up">Este ebook es para vos si…</h2>
+      <p class="section-subtitle fade-up">Si dijiste "sí" a alguna de estas, Cocina Liviana y Saludable fue creado
+        exactamente para vos.</p>
+      <div class="identify-grid">
+        <div class="identify-item fade-up">
+          <div class="check">✓</div>
+          <p>Te cansaste de llegar al mediodía sin saber qué cocinar</p>
+        </div>
+        <div class="identify-item fade-up">
+          <div class="check">✓</div>
+          <p>Sentís hinchazón después de cada comida</p>
+        </div>
+        <div class="identify-item fade-up">
+          <div class="check">✓</div>
+          <p>Querés comer sano pero no sabés cómo empezar</p>
+        </div>
+        <div class="identify-item fade-up">
+          <div class="check">✓</div>
+          <p>Las dietas aburridas e imposibles no son lo tuyo</p>
+        </div>
+        <div class="identify-item fade-up">
+          <div class="check">✓</div>
+          <p>Te gustaría saber exactamente qué nutrientes estás comiendo</p>
+        </div>
+        <div class="identify-item fade-up">
+          <div class="check">✓</div>
+          <p>Necesitás opciones veganas, celíacas o antiinflamatorias</p>
+        </div>
+        <div class="identify-item fade-up">
+          <div class="check">✓</div>
+          <p>Pasás horas buscando recetas en internet sin resultados claros</p>
+        </div>
+        <div class="identify-item fade-up">
+          <div class="check">✓</div>
+          <p>Querés más energía y menos pesadez después de comer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BENEFICIOS ═══ -->
+  <section class="benefits" id="beneficios">
+    <div class="container">
+      <h2 class="section-title fade-up">Lo que vas a lograr</h2>
+      <p class="section-subtitle fade-up">No es magia. Es tener las recetas correctas con la información que necesitás.
+      </p>
+      <div class="benefits-grid">
+        <div class="benefit-card fade-up">
+          <div class="icon">🫁</div>
+          <h3>Chau hinchazón</h3>
+          <p>Recetas antiinflamatorias que desinflamaron tu cuerpo. Vas a notar la diferencia desde la primera semana.
+          </p>
+        </div>
+        <div class="benefit-card fade-up">
+          <div class="icon">📋</div>
+          <h3>Sabé qué cocinar cada día</h3>
+          <p>100 recetas organizadas para almuerzos y cenas. Nunca más en blanco frente a la heladera.</p>
+        </div>
+        <div class="benefit-card fade-up">
+          <div class="icon">⚡</div>
+          <h3>Energía real</h3>
+          <p>Cuando comés lo que tu cuerpo necesita, la energía llega sola. Sin café de por medio.</p>
+        </div>
+        <div class="benefit-card fade-up">
+          <div class="icon">😋</div>
+          <h3>Comé rico sin privarte</h3>
+          <p>Recetas sabrosas y fáciles, hechas para la vida real. Nada de dietas imposibles.</p>
+        </div>
+        <div class="benefit-card fade-up">
+          <div class="icon">📊</div>
+          <h3>Controlá tus nutrientes</h3>
+          <p>Cada receta incluye calorías, proteínas, carbohidratos, grasas, fibra, vitaminas y minerales.</p>
+        </div>
+        <div class="benefit-card fade-up">
+          <div class="icon">🌿</div>
+          <h3>Opciones para todos</h3>
+          <p>Etiquetas claras: antiinflamatoria, detox, vegana y apta celíacos. Filtrá según tu necesidad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTENIDO DEL EBOOK ═══ -->
+  <section class="ebook-content" id="ebook">
+    <div class="container">
+      <h2 class="section-title fade-up">¿Qué incluye el ebook?</h2>
+      <p class="section-subtitle fade-up">Un ebook completo pensado para que tengas todo lo que necesitás en un solo
+        lugar.</p>
+      <div class="ebook-grid">
+        <div class="fade-up">
+          <ul class="ebook-features">
+            <li><span class="feat-icon">📖</span> 100 recetas de almuerzos y cenas para todos los días</li>
+            <li><span class="feat-icon">🔥</span> Calorías aproximadas por receta</li>
+            <li><span class="feat-icon">💪</span> Info nutricional: proteínas, carbos, grasas, fibra, vitaminas y
+              minerales</li>
+            <li><span class="feat-icon">🏷️</span> Etiquetas: antiinflamatoria · detox · vegana · celíaca</li>
+            <li><span class="feat-icon">⏱️</span> Tiempo de preparación en cada receta</li>
+            <li><span class="feat-icon">🛒</span> Ingredientes accesibles y fáciles de conseguir</li>
+            <li><span class="feat-icon">👩‍🍳</span> Pasos claros y simples, sin complicaciones</li>
+            <li><span class="feat-icon">📱</span> Acceso desde cualquier dispositivo</li>
+          </ul>
+        </div>
+        <div class="ebook-mockup fade-up">
+          <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=500&q=80"
+            alt="Ebook Cocina Liviana y Saludable">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PREVIEW RECETAS ═══ -->
+  <section class="recipe-preview" id="recetas">
+    <div class="container">
+      <h2 class="section-title fade-up">Algunas recetas que vas a encontrar</h2>
+      <p class="section-subtitle fade-up">Un vistazo a lo que te espera dentro del ebook.</p>
+      <div class="preview-grid">
+        <div class="preview-card fade-up">
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80"
+            alt="Bowl de quinoa con vegetales">
+          <div class="preview-card-body">
+            <h3>Bowl de Quinoa con Vegetales Asados</h3>
+            <div class="meta">
+              <span class="badge badge-anti">Antiinflamatoria</span>
+              <span class="badge badge-vegan">Vegana</span>
+              <span class="badge badge-celiac">Celíaca</span>
+            </div>
+            <div class="stats">
+              <span>🔥 420 kcal</span>
+              <span>⏱️ 35 min</span>
+              <span>💪 18g prot</span>
+            </div>
+          </div>
+        </div>
+        <div class="preview-card fade-up">
+          <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=500&q=80" alt="Salmón con vegetales">
+          <div class="preview-card-body">
+            <h3>Salmón al Horno con Batata y Brócoli</h3>
+            <div class="meta">
+              <span class="badge badge-anti">Antiinflamatoria</span>
+              <span class="badge badge-celiac">Celíaca</span>
+            </div>
+            <div class="stats">
+              <span>🔥 480 kcal</span>
+              <span>⏱️ 40 min</span>
+              <span>💪 32g prot</span>
+            </div>
+          </div>
+        </div>
+        <div class="preview-card fade-up">
+          <img src="https://images.unsplash.com/photo-1604497181015-76590d828b75?w=500&q=80"
+            alt="Sopa detox de calabaza">
+          <div class="preview-card-body">
+            <h3>Sopa Detox de Calabaza y Jengibre</h3>
+            <div class="meta">
+              <span class="badge badge-detox">Detox</span>
+              <span class="badge badge-vegan">Vegana</span>
+              <span class="badge badge-celiac">Celíaca</span>
+            </div>
+            <div class="stats">
+              <span>🔥 280 kcal</span>
+              <span>⏱️ 30 min</span>
+              <span>💪 8g prot</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BONOS ═══ -->
+  <section class="bonuses" id="bonos">
+    <div class="container">
+      <h2 class="section-title fade-up">Pero eso no es todo…</h2>
+      <p class="section-subtitle fade-up">Comprás el ebook y te llevás estos <strong>5 bonos exclusivos</strong> sin
+        costo adicional.</p>
+      <div class="bonuses-grid">
+
+        <div class="bonus-card fade-up">
+          <div class="bonus-badge">BONO 1</div>
+          <div class="bonus-img">
+            <img src="assets/images/bono1-planificador.png" alt="Planificador Semanal de Comidas">
+          </div>
+          <h3>📅 Planificador Semanal de Comidas</h3>
+          <p>Organizá tus almuerzos y cenas de toda la semana. Incluye lista de compras semanal para ahorrar tiempo y
+            dinero.</p>
+          <div class="bonus-pricing">
+            <span class="bonus-old-price">$8.990 ARS</span>
+            <span class="bonus-free">HOY GRATIS</span>
+          </div>
+        </div>
+
+        <div class="bonus-card fade-up">
+          <div class="bonus-badge">BONO 2</div>
+          <div class="bonus-img">
+            <img src="assets/images/bono2-jugos-detox.png" alt="Jugos Detox">
+          </div>
+          <h3>🍹 Jugos Detox para Recuperar tu Energía</h3>
+          <p>Recetas de jugos naturales detox para limpiar tu cuerpo, desinflamar y recuperar la energía desde el primer
+            día.</p>
+          <div class="bonus-pricing">
+            <span class="bonus-old-price">$10.990 ARS</span>
+            <span class="bonus-free">HOY GRATIS</span>
+          </div>
+        </div>
+
+        <div class="bonus-card fade-up">
+          <div class="bonus-badge">BONO 3</div>
+          <div class="bonus-img">
+            <img src="assets/images/bono3-sin-tacc.png" alt="20 Recetas sin TACC">
+          </div>
+          <h3>🌾 20 Recetas sin TACC</h3>
+          <p>Recetas 100% aptas celíacos, fáciles y deliciosas. Pensadas para que no te falte variedad ni sabor.</p>
+          <div class="bonus-pricing">
+            <span class="bonus-old-price">$12.990 ARS</span>
+            <span class="bonus-free">HOY GRATIS</span>
+          </div>
+        </div>
+
+        <div class="bonus-card fade-up">
+          <div class="bonus-badge">BONO 4</div>
+          <div class="bonus-img">
+            <img src="assets/images/bono4-sin-harinas.png" alt="30 Recetas sin Harinas">
+          </div>
+          <h3>🥗 30 Recetas sin Harinas</h3>
+          <p>Comé liviano sin resignar sabor. 30 recetas sin harinas para almuerzos y cenas que desinflan y nutren.</p>
+          <div class="bonus-pricing">
+            <span class="bonus-old-price">$14.990 ARS</span>
+            <span class="bonus-free">HOY GRATIS</span>
+          </div>
+        </div>
+
+        <div class="bonus-card fade-up">
+          <div class="bonus-badge">BONO 5</div>
+          <div class="bonus-img">
+            <img src="assets/images/bono5-postres.png" alt="50 Postres y Snacks Saludables">
+          </div>
+          <h3>🍰 50 Postres y Snacks Saludables</h3>
+          <p>Dulce sin culpa. 50 recetas de postres y snacks naturales, sin azúcar refinada y fáciles de preparar.</p>
+          <div class="bonus-pricing">
+            <span class="bonus-old-price">$15.990 ARS</span>
+            <span class="bonus-free">HOY GRATIS</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ VALUE STACK Y CTA ═══ -->
+  <section class="value-stack-section" id="comprar" style="background:#111; padding: 60px 0; color: #fff;">
+    <div class="container" style="max-width: 600px; margin: 0 auto; text-align: center;">
+      <div
+        style="background: #ffcc00; color: #000; font-weight: 800; font-size: 0.9rem; padding: 8px 16px; border-radius: 20px; display: inline-block; margin-bottom: 24px; letter-spacing: 1px;">
+        🎁 5 BONOS · EBOOK PRINCIPAL · 6 EN 1
+      </div>
+
+      <p style="color: #999; font-size: 1rem; margin-bottom: 8px;">Valor total del sistema + 5 bonos</p>
+
+      <div
+        style="font-size: 2.2rem; color: #ff4d4d; text-decoration: line-through; font-weight: 800; margin-bottom: 4px;">
+        $88.950 ARS
+      </div>
+
+      <div
+        style="font-size: 5rem; color: #69f0ae; font-weight: 900; line-height: 1; margin-bottom: 16px; letter-spacing: -2px;">
+        $15.999
+      </div>
+
+      <p style="color: #888; font-size: 0.95rem; margin-bottom: 32px;">
+        Un solo pago · Sin suscripciones · Acceso de por vida
+      </p>
+
+      <div
+        style="background: rgba(105, 240, 174, 0.05); border: 1px solid rgba(105, 240, 174, 0.2); border-radius: 12px; padding: 16px; margin-bottom: 32px;">
+        <span style="color: #69f0ae; font-weight: 600;">💰 Ahorrás $72.951</span> <span style="color: #ccc;">en esta
+          compra. Empezá a comer más sano hoy mismo.</span>
+      </div>
+
+      <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px;">
+        <span
+          style="background: #222; border: 1px solid #333; color: #ddd; padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">🔒
+          Pago seguro</span>
+        <span
+          style="background: #222; border: 1px solid #333; color: #ddd; padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">📧
+          Acceso inmediato</span>
+        <span
+          style="background: #222; border: 1px solid #333; color: #ddd; padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">💳
+          Mercado Pago</span>
+      </div>
+
+      <form id="checkout-form" class="fade-up" style="background: rgba(255,255,255,0.05); padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 24px; text-align: left;">
+        <h3 style="margin-bottom: 16px; font-size: 1.2rem; color: #fff; text-align: center;">Completá tus datos para recibir el acceso:</h3>
+        <div style="display: flex; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;">
+          <input type="text" id="nombre" placeholder="Nombre" required style="flex: 1; min-width: 120px; padding: 14px; border-radius: 8px; border: 1px solid #333; background: #222; color: #fff; font-size: 1rem; font-family: 'Inter', sans-serif;">
+          <input type="text" id="apellido" placeholder="Apellido" required style="flex: 1; min-width: 120px; padding: 14px; border-radius: 8px; border: 1px solid #333; background: #222; color: #fff; font-size: 1rem; font-family: 'Inter', sans-serif;">
+        </div>
+        <input type="email" id="email" placeholder="Tu Email (donde vas a recibir el ebook)" required style="width: 100%; box-sizing: border-box; padding: 14px; border-radius: 8px; border: 1px solid #333; background: #222; color: #fff; font-size: 1rem; margin-bottom: 16px; font-family: 'Inter', sans-serif;">
+        
+        <button type="submit" id="btn-submit" class="cta-btn" style="width: 100%; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; font-size: 1.1rem; padding: 22px; background: #ea580c; color: #fff; border: none; box-shadow: 0 10px 30px rgba(234, 88, 12, 0.3); border-radius: 8px; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px;">
+          🛒 Sí, quiero mi Ebook + los 5 Bonos gratis!
+        </button>
+        <div id="form-error" style="color: #ff4d4d; font-size: 0.9rem; margin-top: 12px; display: none; text-align: center;">Ocurrió un error al procesar el pago. Intentá nuevamente.</div>
+      </form>
+      <div style="margin-top: 16px; font-size: 0.8rem; color: #666;">
+        Visa · Mastercard · Débito · Mercado Pago
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIOS ═══ -->
+  <section class="testimonials" id="testimonios">
+    <div class="container">
+      <h2 class="section-title fade-up">Lo que dicen quienes ya lo tienen</h2>
+      <p class="section-subtitle fade-up">Historias reales de personas que transformaron su alimentación.</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-up">
+          <div class="quote">"</div>
+          <p>Llevaba años cocinando siempre lo mismo. Con este ebook descubrí recetas nuevas que son rápidas, ricas y
+            encima sé exactamente qué nutrientes tienen. Mi favorita: la sopa detox de calabaza.</p>
+          <div class="testimonial-author">
+            <div class="avatar">M</div>
+            <div>
+              <div class="name">María L.</div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up">
+          <div class="quote">"</div>
+          <p>Soy celíaca y siempre me costó encontrar recetas variadas. Este ebook tiene un montón de opciones aptas que
+            son deliciosas. El planificador semanal me cambió la vida.</p>
+          <div class="testimonial-author">
+            <div class="avatar">C</div>
+            <div>
+              <div class="name">Carolina G.</div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up">
+          <div class="quote">"</div>
+          <p>Lo compré para bajar la inflamación y en una semana ya noté cambios. Las recetas son fáciles, los
+            ingredientes los consigo en cualquier súper. 100% recomendado.</p>
+          <div class="testimonial-author">
+            <div class="avatar">L</div>
+            <div>
+              <div class="name">Laura P.</div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <h2 class="section-title fade-up">Preguntas frecuentes</h2>
+      <div class="faq-list fade-up">
+        <div class="faq-item">
+          <button class="faq-question">¿Necesito experiencia en cocina? <span class="arrow">▼</span></button>
+          <div class="faq-answer">
+            <p>No. Todas las recetas están pensadas para personas sin experiencia. Los pasos son claros, simples y
+              fáciles de seguir.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">¿Los ingredientes son difíciles de conseguir? <span
+              class="arrow">▼</span></button>
+          <div class="faq-answer">
+            <p>Para nada. Usamos ingredientes que encontrás en cualquier supermercado o verdulería. Nada exótico ni
+              costoso.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">¿Cómo recibo el ebook? <span class="arrow">▼</span></button>
+          <div class="faq-answer">
+            <p>Inmediatamente después de tu compra, recibís el ebook y el planificador semanal directo a tu email. Podés
+              leerlo desde cualquier dispositivo.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">¿Todas las recetas son aptas para celíacos o veganos? <span
+              class="arrow">▼</span></button>
+          <div class="faq-answer">
+            <p>No todas, pero cada receta tiene etiquetas claras que indican si es antiinflamatoria, detox, vegana o
+              apta para celíacos. Así podés filtrar las que se adaptan a vos.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">¿Las recetas incluyen información nutricional? <span
+              class="arrow">▼</span></button>
+          <div class="faq-answer">
+            <p>Sí. Cada receta incluye calorías aproximadas, proteínas, carbohidratos, grasas, fibra, vitaminas
+              destacadas y minerales destacados.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA FINAL ═══ -->
+  <section class="final-cta">
+    <div class="container">
+      <h2 class="fade-up">Tu cuerpo no es tu enemigo.</h2>
+      <p class="emphasis fade-up">Solo necesita las recetas correctas.</p>
+      <a href="#comprar" class="cta-btn fade-up scroll-to-checkout" id="cta-final">
+        🛒 Sí, quiero mi Ebook + los 5 Bonos gratis!
+        <span class="cta-btn-sub">Compra segura · Acceso instantáneo</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="container">
+      <div class="links">
+        <a href="#">Política de privacidad</a>
+        <a href="#">Términos y condiciones</a>
+        <a href="#">Contacto</a>
+      </div>
+      <p>© 2026 Cocina Liviana y Saludable · Todos los derechos reservados</p>
+      <p style="margin-top: 8px; font-size: 0.75rem;">Los resultados pueden variar según cada persona. Este producto no
+        reemplaza la consulta médica profesional.</p>
+    </div>
+  </footer>
+
+  <!-- ═══ STICKY BAR MOBILE ═══ -->
+  <div class="sticky-bar">
+    <a href="#comprar" class="cta-btn scroll-to-checkout" id="cta-sticky">🛒 Sí, quiero mi Ebook + los 5 Bonos gratis!</a>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
