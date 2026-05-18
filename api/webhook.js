@@ -12,6 +12,9 @@ const transporter = nodemailer.createTransport({
   }
 });
 
+// Cache en memoria para evitar correos duplicados por reintentos de Mercado Pago
+const processedPayments = new Set();
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
@@ -28,6 +31,10 @@ export default async function handler(req, res) {
         paymentId = req.query.id;
     } else {
         return res.status(200).send('OK');
+    }
+
+    if (processedPayments.has(paymentId)) {
+        return res.status(200).send('OK - Already processed');
     }
 
     if ((req.body && req.body.type !== 'payment') && (req.query && req.query.topic !== 'payment' && req.query.type !== 'payment')) {
@@ -96,6 +103,9 @@ export default async function handler(req, res) {
                 <p><strong>Monto:</strong> $${payment.transaction_amount} ARS</p>
             `
         });
+        
+        // Registrar el pago como procesado para evitar envíos duplicados futuros en esta instancia
+        processedPayments.add(paymentId);
     }
 
     return res.status(200).send('OK');
