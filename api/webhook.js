@@ -1,10 +1,16 @@
 import { MercadoPagoConfig, Payment } from 'mercadopago';
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 import fs from 'fs';
 import path from 'path';
 
-// Asegúrate de agregar esta variable de entorno en Vercel
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Configurar el transportador de Gmail
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.GMAIL_USER, // ej: ingenieroy17@gmail.com
+    pass: process.env.GMAIL_APP_PASSWORD // Contraseña de aplicación de Google
+  }
+});
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -14,7 +20,6 @@ export default async function handler(req, res) {
   try {
     let paymentId;
     
-    // Obtener ID del pago desde el body o la query string (depende de la versión de MP IPN)
     if (req.body && req.body.data && req.body.data.id) {
         paymentId = req.body.data.id;
     } else if (req.query && req.query['data.id']) {
@@ -25,7 +30,6 @@ export default async function handler(req, res) {
         return res.status(200).send('OK');
     }
 
-    // Ignorar si no es una notificación de pago
     if ((req.body && req.body.type !== 'payment') && (req.query && req.query.topic !== 'payment' && req.query.type !== 'payment')) {
         return res.status(200).send('OK');
     }
@@ -36,16 +40,13 @@ export default async function handler(req, res) {
     const client = new MercadoPagoConfig({ accessToken: token });
     const paymentApi = new Payment(client);
 
-    // Consultar el estado real del pago a Mercado Pago
     const payment = await paymentApi.get({ id: paymentId });
 
-    // Si el pago fue aprobado, enviamos los emails
     if (payment.status === 'approved') {
         const metadata = payment.metadata || {};
         const customerEmail = metadata.email || payment.payer?.email;
         const customerName = metadata.nombre || payment.payer?.first_name || 'Cliente';
 
-        // 1. Cargar PDFs desde la carpeta assets/pdf
         let attachments = [];
         try {
             const pdfDir = path.join(process.cwd(), 'assets', 'pdf');
@@ -64,13 +65,11 @@ export default async function handler(req, res) {
             }
         } catch(err) {
             console.error("Error leyendo PDFs:", err);
-            // Continúa aunque falle la lectura de adjuntos
         }
 
-        // 2. Enviar Email al Cliente
-        // IMPORTANTE: En producción el 'from' debe ser un dominio verificado en Resend
-        await resend.emails.send({
-            from: 'onboarding@resend.dev', // Cambia esto por tu dominio verificado: hola@tudominio.com
+        // Enviar Email al Cliente
+        await transporter.sendMail({
+            from: `"Cocina Liviana y Saludable" <${process.env.GMAIL_USER}>`,
             to: customerEmail,
             subject: '¡Tu Ebook Cocina Liviana y Saludable + Bonos! 🥗',
             html: `
@@ -84,10 +83,10 @@ export default async function handler(req, res) {
             attachments: attachments
         });
 
-        // 3. Enviar Notificación al Administrador (A ti)
-        await resend.emails.send({
-            from: 'onboarding@resend.dev', // Cambia esto por tu dominio verificado
-            to: process.env.ADMIN_EMAIL || 'tu_email@gmail.com', // Cambia esto por tu email donde quieres recibir el aviso
+        // Enviar Notificación al Administrador
+        await transporter.sendMail({
+            from: `"Ventas Bot" <${process.env.GMAIL_USER}>`,
+            to: process.env.GMAIL_USER,
             subject: `NUEVA VENTA 💰: ${customerName}`,
             html: `
                 <h2>¡Nueva Venta Realizada! 🎉</h2>
@@ -102,8 +101,6 @@ export default async function handler(req, res) {
     return res.status(200).send('OK');
   } catch (error) {
     console.error("Error en Webhook:", error);
-    // Para MP siempre devolver 200, sino reintentará infinitamente.
-    // Solo en caso de error crítico damos 500 para debug interno.
     return res.status(500).json({ error: 'Internal Server Error' });
   }
 }
