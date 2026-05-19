@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auditoría SEO - Cocina Liviana y Saludable</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --surface-hover: #334155;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #3b82f6;
+            --success: #22c55e;
+            --warning: #eab308;
+            --danger: #ef4444;
+            --border: #334155;
+        }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; line-height: 1.5; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        header { border-bottom: 1px solid var(--border); padding-bottom: 2rem; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; }
+        h1 { margin: 0; font-size: 1.8rem; }
+        .url { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; }
+        .score-circle { width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: bold; border: 8px solid; }
+        .score-warning { border-color: var(--warning); color: var(--warning); }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; }
+        .stat-value { font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem; }
+        .text-danger { color: var(--danger); } .text-warning { color: var(--warning); } .text-success { color: var(--success); }
+        h2 { border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2rem; }
+        .issue { background: var(--surface); border-left: 4px solid; padding: 1rem; margin-bottom: 1rem; border-radius: 0 8px 8px 0; }
+        .issue-danger { border-left-color: var(--danger); }
+        .issue-warning { border-left-color: var(--warning); }
+        .code-block { background: #000; padding: 1rem; border-radius: 4px; font-family: monospace; overflow-x: auto; font-size: 0.9rem; color: #a5b4fc; margin-top: 0.5rem; }
+        .progress-bar { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin-top: 0.5rem; }
+        .progress-fill { height: 100%; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid var(--border); }
+        th { color: var(--text-muted); font-weight: 600; }
+        .badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem; font-weight: bold; }
+        .bg-danger { background: rgba(239, 68, 68, 0.2); color: var(--danger); }
+        .bg-warning { background: rgba(234, 179, 8, 0.2); color: var(--warning); }
+        .bg-success { background: rgba(34, 197, 94, 0.2); color: var(--success); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1>Auditoría SEO</h1>
+                <div class="url">https://cocina-liviana-y-saludable.vercel.app/</div>
+                <div class="url">Fecha: 19 Mayo 2026</div>
+            </div>
+            <div class="score-circle score-warning">
+                65
+            </div>
+        </header>
+
+        <div class="grid-4">
+            <div class="card">
+                <div class="stat-value text-warning">65/100</div>
+                <div>Puntuación Global</div>
+            </div>
+            <div class="card">
+                <div class="stat-value text-danger">4</div>
+                <div>Problemas Críticos</div>
+            </div>
+            <div class="card">
+                <div class="stat-value text-warning">3</div>
+                <div>Advertencias</div>
+            </div>
+            <div class="card">
+                <div class="stat-value text-success">15</div>
+                <div>Tests Aprobados</div>
+            </div>
+        </div>
+
+        <h2>Top 5 Correcciones Prioritarias</h2>
+        
+        <div class="issue issue-danger">
+            <h3>1. Faltan etiquetas Open Graph y Twitter Cards</h3>
+            <p><strong>Por qué importa:</strong> Al compartir el enlace en WhatsApp, Facebook o Twitter, no se verá ni el título correcto ni la imagen del ebook, perdiendo muchos clics.</p>
+            <strong>Solución:</strong> Añadir al <code>&lt;head&gt;</code>:
+            <div class="code-block">&lt;meta property="og:title" content="Cocina Liviana y Saludable - Ebook"&gt;
+&lt;meta property="og:description" content="100 recetas saludables..."&gt;
+&lt;meta property="og:image" content="https://tu-dominio.com/assets/images/ebook-cover.png"&gt;
+&lt;meta property="og:url" content="https://cocina-liviana-y-saludable.vercel.app/"&gt;</div>
+        </div>
+
+        <div class="issue issue-danger">
+            <h3>2. Ausencia de Schema.org (Datos estructurados)</h3>
+            <p><strong>Por qué importa:</strong> Google no sabe que estás vendiendo un Ebook. Con schema, Google puede mostrar el precio y valoraciones directo en los resultados de búsqueda.</p>
+            <strong>Solución:</strong> Insertar script JSON-LD de tipo "Product" o "Book".
+        </div>
+
+        <div class="issue issue-danger">
+            <h3>3. Faltan robots.txt y sitemap.xml</h3>
+            <p><strong>Por qué importa:</strong> Devuelven error 404. Son los archivos que le dicen a Google qué indexar y dónde están todas tus páginas.</p>
+            <strong>Solución:</strong> Crear un archivo <code>robots.txt</code> con <code>User-agent: * Allow: /</code> y generar un sitemap.
+        </div>
+
+        <div class="issue issue-warning">
+            <h3>4. Falta etiqueta link rel="canonical"</h3>
+            <p><strong>Por qué importa:</strong> Evita problemas de contenido duplicado si la página carga con y sin 'www', o con parámetros en la URL.</p>
+            <strong>Solución:</strong> Añadir: <code>&lt;link rel="canonical" href="https://cocina-liviana-y-saludable.vercel.app/" /&gt;</code>
+        </div>
+
+        <div class="issue issue-warning">
+            <h3>5. Imágenes sin loading="lazy"</h3>
+            <p><strong>Por qué importa:</strong> Las imágenes fuera del primer pantallazo están cargando al inicio, afectando un poco la velocidad (Core Web Vitals).</p>
+            <strong>Solución:</strong> Añadir <code>loading="lazy"</code> a las etiquetas <code>&lt;img&gt;</code> de la galería y los bonos.
+        </div>
+
+        <h2>Desglose por Categoría</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Categoría</th>
+                    <th style="width: 200px">Puntuación</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Meta Tags (20%)</strong><br><small>Title y description muy buenos. Falta canonical.</small></td>
+                    <td><div class="progress-bar"><div class="progress-fill bg-success" style="width: 85%"></div></div></td>
+                    <td><span class="badge bg-success">Aprobado (85/100)</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Headings (15%)</strong><br><small>Jerarquía correcta (H1 -> H2 -> H3). H1 podría tener keywords más fuertes.</small></td>
+                    <td><div class="progress-bar"><div class="progress-fill bg-success" style="width: 90%"></div></div></td>
+                    <td><span class="badge bg-success">Aprobado (90/100)</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Imágenes (10%)</strong><br><small>Tienen alts. Falta lazy loading en las de abajo.</small></td>
+                    <td><div class="progress-bar"><div class="progress-fill bg-warning" style="width: 70%"></div></div></td>
+                    <td><span class="badge bg-warning">Mejorable (70/100)</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Enlaces (10%)</strong><br><small>Bien en general. Links del footer vacíos (#).</small></td>
+                    <td><div class="progress-bar"><div class="progress-fill bg-warning" style="width: 80%"></div></div></td>
+                    <td><span class="badge bg-warning">Mejorable (80/100)</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Open Graph (10%)</strong><br><small>Totalmente ausentes.</small></td>
+                    <td><div class="progress-bar"><div class="progress-fill bg-danger" style="width: 0%"></div></div></td>
+                    <td><span class="badge bg-danger">Crítico (0/100)</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Schema (10%)</strong><br><small>Ausente.</small></td>
+                    <td><div class="progress-bar"><div class="progress-fill bg-danger" style="width: 0%"></div></div></td>
+                    <td><span class="badge bg-danger">Crítico (0/100)</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Técnico (15%)</strong><br><small>HTTPS activo. Faltan sitemap.xml y robots.txt.</small></td>
+                    <td><div class="progress-bar"><div class="progress-fill bg-warning" style="width: 60%"></div></div></td>
+                    <td><span class="badge bg-warning">Mejorable (60/100)</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Contenido (10%)</strong><br><small>Texto abundante, claro y persuasivo.</small></td>
+                    <td><div class="progress-bar"><div class="progress-fill bg-success" style="width: 100%"></div></div></td>
+                    <td><span class="badge bg-success">Excelente (100/100)</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
