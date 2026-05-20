@@ -8,7 +8,7 @@ def get_base64_image(filename):
             return f"data:image/png;base64,{base64.b64encode(f.read()).decode('utf-8')}"
     return ""
 
-bono1_cover = get_base64_image("bono1-planificador.png")
+bono1_cover = get_base64_image(os.path.join("portadas ebooks", "bono 1.png"))
 
 html_template = """<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Planificador Semanal</title><style>@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
 @page { size: A4; margin: 2cm 2.5cm; }

@@ -12,12 +12,12 @@ function getBase64Image(filename) {
   return '';
 }
 
-const mainCover = getBase64Image('ebook-cover.png');
-const bono1Cover = getBase64Image('bono1-planificador.png');
-const bono2Cover = getBase64Image('bono2-jugos-detox.png');
-const bono3Cover = getBase64Image('bono3-sin-tacc.png');
-const bono4Cover = getBase64Image('bono4-sin-harinas.png');
-const bono5Cover = getBase64Image('bono5-postres.png');
+const mainCover = getBase64Image(path.join('portadas ebooks', 'ebook.png'));
+const bono1Cover = getBase64Image(path.join('portadas ebooks', 'bono 1.png'));
+const bono2Cover = getBase64Image(path.join('portadas ebooks', 'bono 2.png'));
+const bono3Cover = getBase64Image(path.join('portadas ebooks', 'bono 3.png'));
+const bono4Cover = getBase64Image(path.join('portadas ebooks', 'bono 4.png'));
+const bono5Cover = getBase64Image(path.join('portadas ebooks', 'bono 5.png'));
 const {ch1, ch2} = require('./data-ch1-2');
 const {ch3, ch4, ch5} = require('./data-ch3-5');
 const {ch6, ch7, ch8, ch9} = require('./data-ch6-9');
