@@ -1,7 +1,18 @@
-import re
+import base64
+import os
+
+def get_base64_image(filename):
+    file_path = os.path.join("assets", "images", filename)
+    if os.path.exists(file_path):
+        with open(file_path, "rb") as f:
+            return f"data:image/png;base64,{base64.b64encode(f.read()).decode('utf-8')}"
+    return ""
+
+bono1_cover = get_base64_image("bono1-planificador.png")
 
 html_template = """<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Planificador Semanal</title><style>@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
 @page { size: A4; margin: 2cm 2.5cm; }
+@page :first { margin: 0; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Inter', sans-serif; color: #2C2C2C; line-height: 1.7; background: #fff; font-size: 11pt; }
 h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.3; }
@@ -12,6 +23,26 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.3; }
 .cover .subtitle { font-size: 16pt; color: #A3BF99; font-style: italic; margin-bottom: 40px; }
 .cover .author { font-size: 12pt; color: rgba(255,255,255,0.7); margin-top: 20px; }
 .cover .brand { font-size: 10pt; color: rgba(255,255,255,0.5); margin-top: 8px; letter-spacing: 2px; text-transform: uppercase; }
+
+/* Cover Page Image */
+.cover-page {
+  page-break-after: always;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 297mm;
+  width: 210mm;
+  margin: 0;
+  background: linear-gradient(135deg, #2D4A3E 0%, #1a3a2e 100%);
+  padding: 40px;
+  box-sizing: border-box;
+}
+.cover-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
+}
 
 /* Intro pages */
 .intro { page-break-after: always; padding: 40px 0; }
@@ -38,7 +69,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.3; }
 
 /* Footer */
 .book-footer { text-align: center; padding: 40px 0; color: #999; font-size: 9pt; page-break-before: always; }
-</style></head><body><div class="cover"><h1>Planificador Semanal de Comidas</h1><div class="subtitle">Organizá tus almuerzos y cenas de toda la semana</div><div class="brand">Cocina Liviana y Saludable</div></div><div class="intro"><h2>Cómo usar este planificador</h2><p>Este planificador te propone 4 semanas completas de almuerzos y cenas saludables. <strong>Primero encontrarás las 4 semanas calculadas para 1 persona</strong>, y luego <strong>las mismas 4 semanas calculadas para 2 personas</strong>.</p><p>Cada semana incluye su lista de compras exacta para que vayas al super una sola vez.</p><p><strong>Importante:</strong> Este planificador es flexible. Podés adaptarlo a tus gustos, cambiar los días o incluso hacer una combinación de 2 recetas por comida si una te parece poco para tus necesidades energéticas.</p><p><strong>Tips de batch cooking:</strong></p><ul><li>Cociná granos (quinoa, arroz integral) en cantidad los domingos</li><li>Lavá y cortá todas las verduras apenas llegues del super</li><li>Prepará aderezos y salsas para toda la semana</li><li>Congelá porciones individuales de sopas y guisos</li></ul></div>
+</style></head><body><div class="cover-page"><img src="{bono1_cover}" class="cover-img" alt="Planificador Semanal"></div><div class="intro"><h2>Cómo usar este planificador</h2><p>Este planificador te propone 4 semanas completas de almuerzos y cenas saludables. <strong>Primero encontrarás las 4 semanas calculadas para 1 persona</strong>, y luego <strong>las mismas 4 semanas calculadas para 2 personas</strong>.</p><p>Cada semana incluye su lista de compras exacta para que vayas al super una sola vez.</p><p><strong>Importante:</strong> Este planificador es flexible. Podés adaptarlo a tus gustos, cambiar los días o incluso hacer una combinación de 2 recetas por comida si una te parece poco para tus necesidades energéticas.</p><p><strong>Tips de batch cooking:</strong></p><ul><li>Cociná granos (quinoa, arroz integral) en cantidad los domingos</li><li>Lavá y cortá todas las verduras apenas llegues del super</li><li>Prepará aderezos y salsas para toda la semana</li><li>Congelá porciones individuales de sopas y guisos</li></ul></div>
 
 <!-- SECCION 1 PERSONA -->
 <div class="chapter-header"><h2>Planificación Semanal</h2><p style="font-size: 14pt; color: #7C9A72; font-weight: 600;">(Cantidades para 1 Persona)</p></div>
@@ -60,5 +91,5 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.3; }
 """
 
 with open("assets/ebooks/bono1-planificador.html", "w", encoding="utf-8") as f:
-    f.write(html_template)
+    f.write(html_template.replace("{bono1_cover}", bono1_cover))
 print("Updated bono1-planificador.html successfully.")

@@ -16,10 +16,14 @@ function chapterHTML(title, num, desc) {
 }
 
 function buildBook(config) {
-  const {title, subtitle, chapters, intro, author, brand} = config;
+  const {title, subtitle, chapters, intro, author, brand, coverImage} = config;
   let html = `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>${title}</title><style>${CSS}</style></head><body>`;
   // Cover
-  html += `<div class="cover"><h1>${title}</h1><div class="subtitle">${subtitle}</div><div class="author">${author||''}</div><div class="brand">${brand||'Cocina Liviana y Saludable'}</div></div>`;
+  if (coverImage) {
+    html += `<div class="cover-page"><img src="${coverImage}" class="cover-img" alt="${title}"></div>`;
+  } else {
+    html += `<div class="cover"><h1>${title}</h1><div class="subtitle">${subtitle}</div><div class="author">${author||''}</div><div class="brand">${brand||'Cocina Liviana y Saludable'}</div></div>`;
+  }
   // Intro
   if(intro) html += `<div class="intro">${intro}</div>`;
   // TOC
@@ -41,9 +45,13 @@ function buildBook(config) {
   return html;
 }
 
-function buildPlanner(weeks) {
+function buildPlanner(weeks, coverImage) {
   let html = `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Planificador Semanal</title><style>${CSS}</style></head><body>`;
-  html += `<div class="cover"><h1>Planificador Semanal de Comidas</h1><div class="subtitle">Organizá tus almuerzos y cenas de toda la semana</div><div class="brand">Cocina Liviana y Saludable</div></div>`;
+  if (coverImage) {
+    html += `<div class="cover-page"><img src="${coverImage}" class="cover-img" alt="Planificador Semanal"></div>`;
+  } else {
+    html += `<div class="cover"><h1>Planificador Semanal de Comidas</h1><div class="subtitle">Organizá tus almuerzos y cenas de toda la semana</div><div class="brand">Cocina Liviana y Saludable</div></div>`;
+  }
   html += `<div class="intro"><h2>Cómo usar este planificador</h2><p>Este planificador te propone 4 semanas completas de almuerzos y cenas saludables. Cada semana incluye su lista de compras para que vayas al super una sola vez.</p><p><strong>Importante:</strong> Este planificador es flexible. Podés adaptarlo a tus gustos, cambiar los días o incluso hacer una combinación de 2 recetas por comida si una te parece poco para tus necesidades energéticas.</p><p><strong>Tips de batch cooking:</strong></p><ul><li>Cociná granos (quinoa, arroz integral) en cantidad los domingos</li><li>Lavá y cortá todas las verduras apenas llegues del super</li><li>Prepará aderezos y salsas para toda la semana</li><li>Congelá porciones individuales de sopas y guisos</li></ul></div>`;
   const days = ['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
   weeks.forEach((w,wi) => {
@@ -56,9 +64,13 @@ function buildPlanner(weeks) {
 }
 
 function buildSimpleBook(config) {
-  const {title, subtitle, sections, intro} = config;
+  const {title, subtitle, sections, intro, coverImage} = config;
   let html = `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>${title}</title><style>${CSS}</style></head><body>`;
-  html += `<div class="cover"><h1>${title}</h1><div class="subtitle">${subtitle}</div><div class="brand">Cocina Liviana y Saludable</div></div>`;
+  if (coverImage) {
+    html += `<div class="cover-page"><img src="${coverImage}" class="cover-img" alt="${title}"></div>`;
+  } else {
+    html += `<div class="cover"><h1>${title}</h1><div class="subtitle">${subtitle}</div><div class="brand">Cocina Liviana y Saludable</div></div>`;
+  }
   if(intro) html += `<div class="intro">${intro}</div>`;
   html += `<div class="toc"><h2>Índice</h2><ul>`;
   let idx = 1;

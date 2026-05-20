@@ -1,6 +1,23 @@
 const fs = require('fs');
 const path = require('path');
 const {buildBook, buildPlanner, buildSimpleBook} = require('./generator');
+
+function getBase64Image(filename) {
+  const filePath = path.join(__dirname, '..', 'images', filename);
+  if (fs.existsSync(filePath)) {
+    const fileBuffer = fs.readFileSync(filePath);
+    return `data:image/png;base64,${fileBuffer.toString('base64')}`;
+  }
+  console.log(`⚠️ Imagen no encontrada: ${filename}`);
+  return '';
+}
+
+const mainCover = getBase64Image('ebook-cover.png');
+const bono1Cover = getBase64Image('bono1-planificador.png');
+const bono2Cover = getBase64Image('bono2-jugos-detox.png');
+const bono3Cover = getBase64Image('bono3-sin-tacc.png');
+const bono4Cover = getBase64Image('bono4-sin-harinas.png');
+const bono5Cover = getBase64Image('bono5-postres.png');
 const {ch1, ch2} = require('./data-ch1-2');
 const {ch3, ch4, ch5} = require('./data-ch3-5');
 const {ch6, ch7, ch8, ch9} = require('./data-ch6-9');
@@ -37,13 +54,14 @@ const mainBook = buildBook({
   author: '',
   brand: 'Cocina Liviana y Saludable',
   intro: mainIntro,
+  coverImage: mainCover,
   chapters: [ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8, ch9]
 });
 fs.writeFileSync(path.join(OUT, 'ebook-principal.html'), mainBook);
 console.log('✅ Ebook Principal generado (100 recetas)');
 
 // 2. Planificador Semanal
-const planner = buildPlanner(plannerWeeks);
+const planner = buildPlanner(plannerWeeks, bono1Cover);
 fs.writeFileSync(path.join(OUT, 'bono1-planificador.html'), planner);
 console.log('✅ Bono 1: Planificador Semanal generado');
 
@@ -60,7 +78,8 @@ const jugosIntro = `<h2>¿Qué son los jugos detox?</h2>
 </ul>`;
 const jugosBook = buildSimpleBook({
   title: 'Jugos Detox', subtitle: 'Recuperá tu Energía Natural',
-  intro: jugosIntro, sections: jugos
+  intro: jugosIntro, sections: jugos,
+  coverImage: bono2Cover
 });
 fs.writeFileSync(path.join(OUT, 'bono2-jugos-detox.html'), jugosBook);
 console.log('✅ Bono 2: Jugos Detox generado (22 recetas)');
@@ -78,7 +97,8 @@ const taccIntro = `<h2>Cocinar sin TACC</h2>
 </ul>`;
 const taccBook = buildSimpleBook({
   title: '20 Recetas sin TACC', subtitle: 'Aptas Celíacos · Fáciles y Deliciosas',
-  intro: taccIntro, sections: sinTacc
+  intro: taccIntro, sections: sinTacc,
+  coverImage: bono3Cover
 });
 fs.writeFileSync(path.join(OUT, 'bono3-sin-tacc.html'), taccBook);
 console.log('✅ Bono 3: 20 Recetas sin TACC generado');
@@ -97,7 +117,8 @@ const harinasIntro = `<h2>¿Por qué reducir las harinas?</h2>
 </ul>`;
 const harinasBook = buildSimpleBook({
   title: '30 Recetas sin Harinas', subtitle: 'Comé Liviano sin Resignar Sabor',
-  intro: harinasIntro, sections: sinHarinas
+  intro: harinasIntro, sections: sinHarinas,
+  coverImage: bono4Cover
 });
 fs.writeFileSync(path.join(OUT, 'bono4-sin-harinas.html'), harinasBook);
 console.log('✅ Bono 4: 30 Recetas sin Harinas generado');
@@ -115,7 +136,8 @@ const postresIntro = `<h2>Dulce sin culpa</h2>
 </ul>`;
 const postresBook = buildSimpleBook({
   title: '50 Postres y Snacks Saludables', subtitle: 'Dulce sin Culpa · Opciones Naturales',
-  intro: postresIntro, sections: [postresFrios, postresHorno, energyBalls, snacksSalados, snacksRapidos]
+  intro: postresIntro, sections: [postresFrios, postresHorno, energyBalls, snacksSalados, snacksRapidos],
+  coverImage: bono5Cover
 });
 fs.writeFileSync(path.join(OUT, 'bono5-postres-snacks.html'), postresBook);
 console.log('✅ Bono 5: 50 Postres y Snacks generado');
