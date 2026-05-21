@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan de Configuración Meta - Cocina Liviana y Saludable</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #10b981;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --secondary: #06b6d4;
+      --background: #f8fafc;
+      --surface: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--background);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 80px;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .header-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h1 i {
+      color: var(--primary);
+    }
+
+    .progress-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      color: var(--primary-dark);
+      background: var(--primary-light);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 8px;
+      background-color: var(--border);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 9999px;
+      transition: width 0.4s ease;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 32px auto;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .intro-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .intro-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      background: var(--primary-light);
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .intro-text h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .intro-text p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .step-card.completed {
+      border-color: var(--primary-light);
+      background-color: #fafdfb;
+    }
+
+    .step-header {
+      padding: 20px 24px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .step-card.completed .step-header {
+      background: #f0fdf4;
+      border-bottom-color: var(--primary-light);
+    }
+
+    .step-title-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .step-badge {
+      background: var(--text-muted);
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .step-card.completed .step-badge {
+      background: var(--primary);
+    }
+
+    .step-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .step-card.completed .step-title {
+      color: var(--primary-dark);
+      text-decoration: line-through;
+      opacity: 0.8;
+    }
+
+    .step-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .step-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .substep-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      transition: var(--transition);
+    }
+
+    .substep-item:hover {
+      background: var(--background);
+      border-color: var(--border);
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      position: relative;
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .checkbox-container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 24px;
+      width: 24px;
+      background-color: #fff;
+      border: 2px solid #cbd5e1;
+      border-radius: 6px;
+      transition: var(--transition);
+    }
+
+    .checkbox-container:hover input ~ .checkmark {
+      border-color: var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    .checkbox-container input:checked ~ .checkmark {
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    .checkbox-container input:checked ~ .checkmark:after {
+      display: block;
+    }
+
+    .checkbox-container .checkmark:after {
+      left: 8px;
+      top: 4px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+    }
+
+    .substep-body {
+      flex-grow: 1;
+    }
+
+    .substep-title {
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+      transition: var(--transition);
+    }
+
+    .substep-item.checked .substep-title {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .substep-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .substep-desc blockquote {
+      background: var(--background);
+      border-left: 3px solid var(--primary);
+      padding: 8px 12px;
+      margin: 8px 0;
+      border-radius: 4px;
+      font-style: italic;
+      color: var(--text-main);
+    }
+
+    .substep-desc ul {
+      margin-left: 18px;
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .link-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .link-badge:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .reset-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .reset-btn:hover {
+      background: #fee2e2;
+      color: #ef4444;
+      border-color: #fca5a5;
+    }
+
+    @media (max-width: 640px) {
+      .header-info {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .progress-wrapper {
+        align-self: stretch;
+        justify-content: space-between;
+      }
+      .intro-card {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="header-info">
+        <h1><i class="fa-brands fa-meta"></i> Plan de Configuración de Meta</h1>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <button class="reset-btn" id="reset-btn"><i class="fa-solid fa-rotate-left"></i> Reiniciar</button>
+          <div class="progress-wrapper">
+            <span>Progreso</span>
+            <span id="progress-text">0%</span>
+          </div>
+        </div>
+      </div>
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="intro-card">
+      <div class="intro-icon">
+        <i class="fa-solid fa-book-open"></i>
+      </div>
+      <div class="intro-text">
+        <h2>Cocina Liviana y Saludable</h2>
+        <p>Configuración profesional para la venta de ebooks. Sigue el checklist para preparar tus activos digitales y lanzar campañas publicitarias redirigiendo de Instagram a tu landing page.</p>
+      </div>
+    </div>
+
+    <!-- PASO 1 -->
+    <div class="step-card" id="step-1">
+      <div class="step-header">
+        <div class="step-title-group">
+          <span class="step-badge">Paso 1</span>
+          <span class="step-title">Preparación del Perfil Personal de Facebook</span>
+        </div>
+        <div class="step-meta">
+          <span class="step-count">0/2 completados</span>
+        </div>
+      </div>
+      <div class="step-content">
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="1" data-sub="1">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Identificar y Verificar Perfil Personal</div>
+            <div class="substep-desc">Asegurar que la cuenta personal de Facebook a utilizar pertenezca a una identidad real y verificable por seguridad ante posibles revisiones o bloqueos de Meta.</div>
+          </div>
+        </div>
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="1" data-sub="2">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Activar Autenticación en Dos Pasos (2FA)</div>
+            <div class="substep-desc">Obligatorio para administrar cuentas publicitarias y portafolios comerciales. Configurar desde la sección de Seguridad de Facebook.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASO 2 -->
+    <div class="step-card" id="step-2">
+      <div class="step-header">
+        <div class="step-title-group">
+          <span class="step-badge">Paso 2</span>
+          <span class="step-title">Creación de la Página de Facebook (Fanpage)</span>
+        </div>
+        <div class="step-meta">
+          <span class="step-count">0/3 completados</span>
+        </div>
+      </div>
+      <div class="step-content">
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="2" data-sub="1">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Crear Página en Facebook</div>
+            <div class="substep-desc">Ir a Páginas > Crear nueva página.
+              <ul>
+                <li><strong>Nombre:</strong> Cocina Liviana y Saludable</li>
+                <li><strong>Categoría:</strong> Salud y bienestar / Cocina / Sitio web</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="2" data-sub="2">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Configurar Presentación de Página</div>
+            <div class="substep-desc">Añadir descripción comercial corta:
+              <blockquote>Ebook con 100 recetas saludables y deliciosas de almuerzos y cenas. Antiinflamatorias, detox y aptas para celíacos.</blockquote>
+            </div>
+          </div>
+        </div>
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="2" data-sub="3">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Subir Identidad Visual</div>
+            <div class="substep-desc">Establecer logotipo oficial como foto de perfil e imagen representativa de los ebooks saludables como portada.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASO 3 -->
+    <div class="step-card" id="step-3">
+      <div class="step-header">
+        <div class="step-title-group">
+          <span class="step-badge">Paso 3</span>
+          <span class="step-title">Registro y Optimización de la Cuenta de Instagram Profesional</span>
+        </div>
+        <div class="step-meta">
+          <span class="step-count">0/5 completados</span>
+        </div>
+      </div>
+      <div class="step-content">
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="3" data-sub="1">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Registrar Cuenta Comercial e Imagen de Perfil</div>
+            <div class="substep-desc">Crear usuario (ej: <code>@cocina.liviana.saludable</code>), configurar nombre "Cocina Liviana y Saludable | Recetas Ebook" y usar el logo oficial. Cambiar a cuenta profesional (Creador o Empresa) en Configuración.</div>
+          </div>
+        </div>
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="3" data-sub="2">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Optimizar Biografía Enfocada en Conversiones</div>
+            <div class="substep-desc">Escribir una bio vendedora estructurada:
+              <blockquote>
+                🍳 +100 recetas deliciosas y fáciles de almuerzos y cenas.<br>
+                ✨ Antiinflamatorias, detox, veganas y sin TACC.<br>
+                👇 ¡Comenzá a comer sano hoy mismo con nuestro Ebook!
+              </blockquote>
+            </div>
+          </div>
+        </div>
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="3" data-sub="3">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Vincular Redirección a la Landing Page</div>
+            <div class="substep-desc">Añadir la URL oficial del ebook en el campo "Sitio web" del perfil: 
+              <a href="https://cocina-liviana-y-saludable.vercel.app/" target="_blank" class="link-badge"><i class="fa-solid fa-link"></i> Landing Page</a>
+            </div>
+          </div>
+        </div>
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="3" data-sub="4">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Configurar Historias Destacadas (Highlights)</div>
+            <div class="substep-desc">Crear las portadas y contenido clave:
+              <ul>
+                <li><strong>📖 Ebook:</strong> Capturas del interior, recetas y el planificador digital.</li>
+                <li><strong>💬 Opiniones:</strong> Comentarios reales y reseñas de clientes.</li>
+                <li><strong>🛒 Cómo Comprar:</strong> Video/pantallazos guiando a la landing page y el checkout.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="3" data-sub="5">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Subir y Fijar Publicaciones Pilares</div>
+            <div class="substep-desc">Fijar tres posts informativos arriba: Lanzamiento oficial del Ebook + Bonos, video de demostración del planificador digital, y los beneficios de la comida antiinflamatoria.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASO 4 -->
+    <div class="step-card" id="step-4">
+      <div class="step-header">
+        <div class="step-title-group">
+          <span class="step-badge">Paso 4</span>
+          <span class="step-title">Creación del Administrador Comercial en Meta Business Suite</span>
+        </div>
+        <div class="step-meta">
+          <span class="step-count">0/3 completados</span>
+        </div>
+      </div>
+      <div class="step-content">
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="4" data-sub="1">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Registrarse en Meta Business Manager</div>
+            <div class="substep-desc">Ingresar a <a href="https://business.facebook.com/" target="_blank" class="link-badge"><i class="fa-solid fa-up-right-from-square"></i> business.facebook.com</a> y hacer clic en <strong>Crear cuenta</strong>.</div>
+          </div>
+        </div>
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="4" data-sub="2">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Completar Datos del Portafolio Comercial</div>
+            <div class="substep-desc">Introducir nombre del negocio (ej. Cocina Liviana y Saludable), nombre del administrador y el correo electrónico comercial.</div>
+          </div>
+        </div>
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="4" data-sub="3">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Confirmar Correo Electrónico Comercial</div>
+            <div class="substep-desc">Revisar la bandeja de entrada del correo ingresado y hacer clic en el enlace de verificación enviado por Meta.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASO 5 -->
+    <div class="step-card" id="step-5">
+      <div class="step-header">
+        <div class="step-title-group">
+          <span class="step-badge">Paso 5</span>
+          <span class="step-title">Vinculación de Activos en Meta Business Suite</span>
+        </div>
+        <div class="step-meta">
+          <span class="step-count">0/2 completados</span>
+        </div>
+      </div>
+      <div class="step-content">
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="5" data-sub="1">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Vincular Página de Facebook</div>
+            <div class="substep-desc">En Configuración del negocio, ir a Páginas > Añadir > Añadir una página, y buscar el nombre de tu fanpage para vincularla.</div>
+          </div>
+        </div>
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="5" data-sub="2">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Vincular Cuenta de Instagram Profesional</div>
+            <div class="substep-desc">En Configuración del negocio, ir a Cuentas de Instagram > Añadir > Conectar cuenta de Instagram, e iniciar sesión.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASO 6 -->
+    <div class="step-card" id="step-6">
+      <div class="step-header">
+        <div class="step-title-group">
+          <span class="step-badge">Paso 6</span>
+          <span class="step-title">Configuración de la Cuenta Publicitaria (Meta Ads)</span>
+        </div>
+        <div class="step-meta">
+          <span class="step-count">0/3 completados</span>
+        </div>
+      </div>
+      <div class="step-content">
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="6" data-sub="1">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Crear Cuenta Publicitaria</div>
+            <div class="substep-desc">En la Configuración del negocio, ir a Cuentas publicitarias > Añadir > Crear una cuenta publicitaria. Nombre sugerido: <code>Cocina Liviana y Saludable - Ads</code>.</div>
+          </div>
+        </div>
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="6" data-sub="2">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Configurar Zona Horaria y Divisa Correctas</div>
+            <div class="substep-desc">Elegir con precisión la zona horaria y moneda con la que pagarás la publicidad (ARS, USD, etc.) para evitar cargos extras o conversiones.</div>
+          </div>
+        </div>
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="6" data-sub="3">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Asociar Método de Pago</div>
+            <div class="substep-desc">Añadir una tarjeta de crédito o débito autorizada para publicidad online.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASO 7 -->
+    <div class="step-card" id="step-7">
+      <div class="step-header">
+        <div class="step-title-group">
+          <span class="step-badge">Paso 7</span>
+          <span class="step-title">Configuración e Integración del Pixel de Meta (Dataset)</span>
+        </div>
+        <div class="step-meta">
+          <span class="step-count">0/4 completados</span>
+        </div>
+      </div>
+      <div class="step-content">
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="7" data-sub="1">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Crear Dataset (Pixel)</div>
+            <div class="substep-desc">En la configuración comercial, ir a Orígenes de datos > Conjuntos de datos. Hacer clic en Añadir y ponerle un nombre identificable.</div>
+          </div>
+        </div>
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="7" data-sub="2">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Copiar Identificador de Pixel</div>
+            <div class="substep-desc">Copiar el identificador numérico único generado para tu conjunto de datos/píxel.</div>
+          </div>
+        </div>
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="7" data-sub="3">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Insertar Script en Landing Page</div>
+            <div class="substep-desc">Colocar el fragmento de script de seguimiento de Meta en el <code>&lt;head&gt;</code> de tu archivo <code>index.html</code>.</div>
+          </div>
+        </div>
+        <div class="substep-item">
+          <label class="checkbox-container">
+            <input type="checkbox" class="substep-check" data-step="7" data-sub="4">
+            <span class="checkmark"></span>
+          </label>
+          <div class="substep-body">
+            <div class="substep-title">Configurar Eventos de Conversión Claves</div>
+            <div class="substep-desc">Añadir seguimiento para clics en los botones de compra (Inicir Pago / Comprar) y vincular la respuesta con tu webhook o pasarela.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN DE PREVISUALIZACIÓN MULTIMEDIA -->
+    <div class="step-card" id="media-preview-section">
+      <div class="step-header" style="cursor: default;">
+        <div class="step-title-group">
+          <span class="step-badge" style="background: var(--secondary);">RRSS</span>
+          <span class="step-title">Galería de Historias Destacadas (Instagram)</span>
+        </div>
+      </div>
+      <div class="step-content">
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px;">
+          Estas son las 3 historias destacadas generadas para tu perfil de Instagram. Puedes verlas aquí o abrirlas desde la carpeta de recursos de tu proyecto: <code>assets/images/</code>.
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+          <div style="display: flex; flex-direction: column; gap: 8px; border: 1px solid var(--border); padding: 12px; border-radius: var(--radius-sm); background: var(--background); text-align: center;">
+            <strong style="font-size: 0.9rem; color: var(--primary-dark);">1. Ebook por Dentro</strong>
+            <img src="assets/images/highlight_ebook.png" alt="Ebook por Dentro" style="width: 100%; border-radius: 6px; aspect-ratio: 9/16; object-fit: cover; border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px; border: 1px solid var(--border); padding: 12px; border-radius: var(--radius-sm); background: var(--background); text-align: center;">
+            <strong style="font-size: 0.9rem; color: var(--primary-dark);">2. Opiniones y Reseñas</strong>
+            <img src="assets/images/highlight_opiniones.png" alt="Opiniones" style="width: 100%; border-radius: 6px; aspect-ratio: 9/16; object-fit: cover; border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px; border: 1px solid var(--border); padding: 12px; border-radius: var(--radius-sm); background: var(--background); text-align: center;">
+            <strong style="font-size: 0.9rem; color: var(--primary-dark);">3. Cómo Comprar</strong>
+            <img src="assets/images/highlight_como_comprar.png" alt="Cómo Comprar" style="width: 100%; border-radius: 6px; aspect-ratio: 9/16; object-fit: cover; border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const checkboxes = document.querySelectorAll('.substep-check');
+      const progressText = document.getElementById('progress-text');
+      const progressFill = document.getElementById('progress-fill');
+      const resetBtn = document.getElementById('reset-btn');
+
+      // Load state from LocalStorage
+      function loadState() {
+        const savedState = JSON.parse(localStorage.getItem('meta_plan_state')) || {};
+        checkboxes.forEach((cb) => {
+          const step = cb.getAttribute('data-step');
+          const sub = cb.getAttribute('data-sub');
+          const key = `step_${step}_sub_${sub}`;
+          
+          if (savedState[key]) {
+            cb.checked = true;
+            cb.closest('.substep-item').classList.add('checked');
+          }
+        });
+        updateProgress();
+      }
+
+      // Save state to LocalStorage
+      function saveState() {
+        const state = {};
+        checkboxes.forEach((cb) => {
+          const step = cb.getAttribute('data-step');
+          const sub = cb.getAttribute('data-sub');
+          const key = `step_${step}_sub_${sub}`;
+          state[key] = cb.checked;
+        });
+        localStorage.setItem('meta_plan_state', JSON.stringify(state));
+      }
+
+      // Calculate and update progress UI
+      function updateProgress() {
+        const total = checkboxes.length;
+        const checkedCount = document.querySelectorAll('.substep-check:checked').length;
+        const percentage = total > 0 ? Math.round((checkedCount / total) * 100) : 0;
+
+        progressText.innerText = `${percentage}%`;
+        progressFill.style.width = `${percentage}%`;
+
+        // Update step card states and sub-counts
+        for (let s = 1; s <= 7; s++) {
+          const stepCard = document.getElementById(`step-${s}`);
+          const stepCbs = stepCard.querySelectorAll('.substep-check');
+          const stepTotal = stepCbs.length;
+          const stepChecked = stepCard.querySelectorAll('.substep-check:checked').length;
+          
+          const countMeta = stepCard.querySelector('.step-count');
+          countMeta.innerText = `${stepChecked}/${stepTotal} completados`;
+
+          if (stepChecked === stepTotal) {
+            stepCard.classList.add('completed');
+          } else {
+            stepCard.classList.remove('completed');
+          }
+        }
+      }
+
+      // Checkbox event listeners
+      checkboxes.forEach((cb) => {
+        cb.addEventListener('change', (e) => {
+          const substepItem = e.target.closest('.substep-item');
+          if (e.target.checked) {
+            substepItem.classList.add('checked');
+          } else {
+            substepItem.classList.remove('checked');
+          }
+          saveState();
+          updateProgress();
+        });
+      });
+
+      // Reset button
+      resetBtn.addEventListener('click', () => {
+        if (confirm('¿Estás seguro de que quieres reiniciar todo el progreso de la configuración?')) {
+          checkboxes.forEach((cb) => {
+            cb.checked = false;
+            cb.closest('.substep-item').classList.remove('checked');
+          });
+          saveState();
+          updateProgress();
+        }
+      });
+
+      // Initialize
+      loadState();
+    });
+  </script>
+</body>
+</html>
