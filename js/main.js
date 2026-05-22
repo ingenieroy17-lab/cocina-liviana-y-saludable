@@ -1,4 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Meta Pixel Purchase Event tracking on back redirection
+  const urlParams = new URLSearchParams(window.location.search);
+  const paymentStatus = urlParams.get('status') || urlParams.get('collection_status');
+  const paymentId = urlParams.get('payment_id') || urlParams.get('collection_id');
+  
+  if (paymentStatus === 'approved' && paymentId) {
+    let trackedPurchases = [];
+    try {
+      trackedPurchases = JSON.parse(localStorage.getItem('tracked_purchases') || '[]');
+    } catch (e) {
+      trackedPurchases = [];
+    }
+    
+    if (!trackedPurchases.includes(paymentId)) {
+      if (typeof fbq === 'function') {
+        fbq('track', 'Purchase', {
+          value: 15999.00,
+          currency: 'ARS',
+          content_name: 'Ebook Cocina Liviana + 5 Bonos',
+          content_type: 'product',
+          content_ids: ['ebook-bonos-v1']
+        });
+      }
+      trackedPurchases.push(paymentId);
+      localStorage.setItem('tracked_purchases', JSON.stringify(trackedPurchases));
+      
+      const heroText = document.querySelector('.hero-text');
+      if (heroText) {
+        const successMessage = document.createElement('div');
+        successMessage.className = 'payment-success-banner';
+        successMessage.style.cssText = 'background: rgba(105, 240, 174, 0.1); border: 2px solid #69f0ae; border-radius: 12px; padding: 20px; margin-bottom: 30px; text-align: left; color: #fff;';
+        successMessage.innerHTML = `
+          <h3 style="color: #69f0ae; margin-bottom: 8px; font-size: 1.3rem;">¡Pago Procesado con Éxito! 🎉</h3>
+          <p style="font-size: 0.95rem; margin: 0; color: #ccc;">Tu compra del Ebook + 5 Bonos se acreditó correctamente. Revisá tu email en unos minutos para descargar el material.</p>
+        `;
+        heroText.insertBefore(successMessage, heroText.firstChild);
+      }
+    }
+  }
+
   // Scroll animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
@@ -90,6 +130,16 @@ document.addEventListener('DOMContentLoaded', () => {
       btnSubmit.innerHTML = '⏳ Generando pago seguro...';
       btnSubmit.disabled = true;
 
+      if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'Ebook Cocina Liviana + 5 Bonos',
+          value: 15999.00,
+          currency: 'ARS',
+          content_type: 'product',
+          content_ids: ['ebook-bonos-v1']
+        });
+      }
+
       try {
         const response = await fetch('/api/checkout', {
           method: 'POST',
@@ -118,6 +168,17 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.scroll-to-checkout').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+      
+      if (typeof fbq === 'function') {
+        fbq('track', 'AddToCart', {
+          content_name: 'Ebook Cocina Liviana + 5 Bonos',
+          value: 15999.00,
+          currency: 'ARS',
+          content_type: 'product',
+          content_ids: ['ebook-bonos-v1']
+        });
+      }
+
       document.querySelector('#comprar').scrollIntoView({ behavior: 'smooth' });
       // Focus the name input after scrolling
       setTimeout(() => document.getElementById('nombre')?.focus(), 500);
