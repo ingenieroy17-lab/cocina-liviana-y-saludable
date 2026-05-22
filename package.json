@@ -4,6 +4,7 @@
   "description": "Backend para Landing Page de Ebook Saludable",
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
+    "googleapis": "^172.0.0",
     "mercadopago": "^2.0.9",
     "nodemailer": "^8.0.7"
   }

@@ -2,6 +2,7 @@ import { MercadoPagoConfig, Payment } from 'mercadopago';
 import nodemailer from 'nodemailer';
 import fs from 'fs';
 import path from 'path';
+import { appendSale } from './sheets.js';
 
 // Configurar el transportador de Gmail
 const transporter = nodemailer.createTransport({
@@ -104,6 +105,19 @@ export default async function handler(req, res) {
             `
         });
         
+        // Registrar venta en Google Sheets
+        try {
+          await appendSale({
+            nombre: customerName,
+            apellido: metadata.apellido || '',
+            email: customerEmail,
+            paymentId: paymentId,
+            monto: payment.transaction_amount
+          });
+        } catch (sheetErr) {
+          console.error('Error registrando en Google Sheets:', sheetErr);
+        }
+
         // Registrar el pago como procesado para evitar envíos duplicados futuros en esta instancia
         processedPayments.add(paymentId);
     }
