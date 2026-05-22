@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auditoría de Negocio — Cocina Liviana y Saludable</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --bg-card: #131a26;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --primary: #10b981; /* Emerald green */
+      --primary-glow: rgba(16, 185, 129, 0.15);
+      --secondary: #f97316; /* Orange */
+      --secondary-glow: rgba(249, 115, 22, 0.15);
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --info: #3b82f6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 80px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #111827 0%, #030712 100%);
+      border-bottom: 1px solid var(--border-color);
+      padding: 40px 0;
+      margin-bottom: 40px;
+      border-radius: 0 0 24px 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .header-title h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #10b981, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    .header-title p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .header-badge {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--primary);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* NAVIGATION */
+    nav {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 30px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    nav button {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+
+    nav button:hover {
+      border-color: rgba(255,255,255,0.2);
+      color: var(--text-main);
+    }
+
+    nav button.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 20px var(--primary-glow);
+    }
+
+    /* TAB CONTENT */
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* CARDS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(255,255,255,0.15);
+      transform: translateY(-2px);
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+    }
+
+    /* SCORE RADIAL & PILL DESC */
+    .score-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .score-circle {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: conic-gradient(var(--primary) calc(82 * 1%), #1e293b calc(82 * 1%));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px var(--primary-glow);
+    }
+
+    .score-circle::after {
+      content: '';
+      position: absolute;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: var(--bg-card);
+    }
+
+    .score-inner {
+      position: relative;
+      z-index: 2;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .score-desc h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .score-desc p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* PROGRESS BARS */
+    .progress-group {
+      margin-bottom: 16px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-muted);
+    }
+
+    .progress-label span:last-child {
+      color: #fff;
+    }
+
+    .progress-bar-bg {
+      background: #1e293b;
+      height: 8px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 10px;
+      background: linear-gradient(to right, #10b981, #60a5fa);
+      transition: width 1s ease-out;
+    }
+
+    /* EXECUTIVE SUMMARY */
+    .executive-summary {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+      border: 1px solid rgba(59, 130, 246, 0.15);
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+
+    .summary-heading {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: #3b82f6;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .summary-text p {
+      margin-bottom: 16px;
+      font-size: 1.05rem;
+      color: #e5e7eb;
+    }
+
+    .summary-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* SWOT ANALYSIS (STRENGTHS / WEAKNESSES) */
+    .swot-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .swot-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .swot-box {
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid var(--border-color);
+    }
+
+    .swot-box.strengths {
+      background: rgba(16, 185, 129, 0.02);
+      border-color: rgba(16, 185, 129, 0.15);
+    }
+
+    .swot-box.weaknesses {
+      background: rgba(239, 68, 68, 0.02);
+      border-color: rgba(239, 68, 68, 0.15);
+    }
+
+    .swot-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .swot-box.strengths .swot-title { color: #10b981; }
+    .swot-box.weaknesses .swot-title { color: #ef4444; }
+
+    .swot-list li {
+      list-style-type: none;
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    .swot-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #10b981;
+      font-weight: bold;
+    }
+
+    .swot-box.weaknesses .swot-list li::before {
+      content: "✗";
+      color: #ef4444;
+    }
+
+    /* INCOHERENCIES & ERRORS LIST */
+    .inconsistency-card {
+      border-left: 4px solid var(--danger);
+      background: rgba(239, 68, 68, 0.02);
+      margin-bottom: 16px;
+      padding: 20px;
+      border-radius: 0 12px 12px 0;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .inconsistency-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .inconsistency-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .priority-badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    .priority-badge.alta { background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.2); }
+    .priority-badge.media { background: rgba(245, 158, 11, 0.1); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.2); }
+    .priority-badge.baja { background: rgba(59, 130, 246, 0.1); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.2); }
+
+    .inconsistency-body {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .inconsistency-fix {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      color: #e5e7eb;
+      font-weight: 500;
+      display: flex;
+      gap: 8px;
+    }
+
+    .inconsistency-fix::before {
+      content: "💡";
+    }
+
+    /* COMPARATIVE TABLE */
+    .table-container {
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background: #111827;
+      color: #fff;
+      font-weight: 700;
+      padding: 16px;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border-color);
+      background: var(--bg-card);
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .feature-name {
+      font-weight: 700;
+      color: #e5e7eb;
+    }
+
+    .rating-bubble {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .rating-bubble.excellent { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+    .rating-bubble.good { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+    .rating-bubble.fair { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+    .rating-bubble.poor { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+
+    /* CUSTOMER JOURNEY DIAGRAM */
+    .journey-map {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      margin-bottom: 40px;
+      overflow-x: auto;
+      gap: 16px;
+      padding: 10px 0;
+    }
+
+    .journey-step {
+      flex: 1;
+      min-width: 180px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      position: relative;
+    }
+
+    .journey-step.leak {
+      border-color: rgba(239, 68, 68, 0.3);
+      background: rgba(239, 68, 68, 0.01);
+    }
+
+    .journey-step.strong {
+      border-color: rgba(16, 185, 129, 0.3);
+      background: rgba(16, 185, 129, 0.01);
+    }
+
+    .journey-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .journey-step.leak .journey-badge { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+    .journey-step.strong .journey-badge { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+
+    .journey-step h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .journey-step p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .journey-status {
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .journey-step.leak .journey-status { color: #ef4444; }
+    .journey-step.strong .journey-status { color: #10b981; }
+
+    /* ACTION PLAN & QUICK WINS */
+    .quick-wins-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .quick-win-card {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.02) 0%, rgba(16, 185, 129, 0.08) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      position: relative;
+    }
+
+    .quick-win-number {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 2rem;
+      font-weight: 800;
+      color: rgba(16, 185, 129, 0.15);
+      line-height: 1;
+    }
+
+    .quick-win-card h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .quick-win-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .quick-win-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-top: 1px solid rgba(16, 185, 129, 0.1);
+      padding-top: 8px;
+    }
+
+    .quick-win-meta span:first-child {
+      color: var(--primary);
+    }
+
+    .quick-win-meta span:last-child {
+      color: #ccc;
+    }
+
+    /* COPYWRITING SECTION */
+    .copy-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .copy-compare {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .copy-bubble {
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      position: relative;
+    }
+
+    .copy-bubble.before {
+      background: rgba(239, 68, 68, 0.05);
+      border: 1px solid rgba(239, 68, 68, 0.15);
+      color: #fda4af;
+    }
+
+    .copy-bubble.after {
+      background: rgba(16, 185, 129, 0.05);
+      border: 1px solid rgba(16, 185, 129, 0.15);
+      color: #a7f3d0;
+    }
+
+    .copy-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .copy-bubble.before .copy-label { color: #f43f5e; }
+    .copy-bubble.after .copy-label { color: #10b981; }
+
+    /* FOOTER */
+    .footer-report {
+      border-top: 1px solid var(--border-color);
+      margin-top: 60px;
+      padding-top: 30px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* PRINT STYLES */
+    @media print {
+      body {
+        background: #fff;
+        color: #000;
+        font-size: 10pt;
+      }
+      .container {
+        max-width: 100%;
+        padding: 0;
+      }
+      header, nav, .footer-report {
+        display: none !important;
+      }
+      .card, .swot-box, .inconsistency-card, .table-container, table, td, th {
+        border: 1px solid #ccc !important;
+        background: #fff !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        transform: none !important;
+      }
+      .tab-content {
+        display: block !important;
+        page-break-after: always;
+      }
+      .score-circle {
+        background: #eee !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+      }
+      .score-inner, .score-desc h3, .card-title, h4, th, .feature-name {
+        color: #000 !important;
+      }
+      .swot-box.strengths .swot-title, .journey-step.strong .journey-status { color: #008000 !important; }
+      .swot-box.weaknesses .swot-title, .journey-step.leak .journey-status { color: #ff0000 !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- ═══ HEADER ═══ -->
+    <header>
+      <div class="container header-content">
+        <div class="header-title">
+          <h1>Auditoría de Negocio Digital</h1>
+          <p>Proyecto: <strong>Cocina Liviana y Saludable</strong> &middot; Análisis de Competencia & Estrategia</p>
+        </div>
+        <div class="header-badge">
+          Mayo 2026
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══ NAVIGATION ═══ -->
+    <nav>
+      <button class="nav-btn active" onclick="showTab('resumen')">📊 Resumen y Score</button>
+      <button class="nav-btn" onclick="showTab('competencia')">⚔️ Comparativa Competencia</button>
+      <button class="nav-btn" onclick="showTab(' journey')">🗺️ Customer Journey</button>
+      <button class="nav-btn" onclick="showTab('copy')">✍️ Análisis de Copy & Errores</button>
+      <button class="nav-btn" onclick="showTab('plan')">⚡ Plan de Acción</button>
+    </nav>
+
+    <!-- ═══ TAB 1: RESUMEN Y SCORE ═══ -->
+    <div id="resumen" class="tab-content active">
+      <div class="score-wrapper">
+        <div class="score-circle">
+          <div class="score-inner">82</div>
+        </div>
+        <div class="score-desc">
+          <h3>Salud General de Negocio: 82/100</h3>
+          <p>Tu posicionamiento es técnicamente robusto, con una landing page de alta calidad estética e integración fluida de checkout directo.</p>
+        </div>
+      </div>
+
+      <!-- EXECUTIVE SUMMARY -->
+      <div class="executive-summary">
+        <div class="summary-heading">
+          <span>📋</span> Resumen Ejecutivo
+        </div>
+        <div class="summary-text">
+          <p>
+            <strong>Estado Actual:</strong> La propuesta cuenta con una landing page superior en diseño visual a sus competidores principales y una arquitectura técnica automatizada muy robusta ( checkout integrado con Mercado Pago y webhook para envío instantáneo de PDFs). El precio establecido ($15.999 ARS) se ubica en el punto óptimo del mercado, posicionándose como una alternativa más económica que <i>Come Liviana</i> ($18.990 ARS) pero transmitiendo mayor calidad visual que la <i>Biblia Batch Cooking</i> ($12.999 ARS).
+          </p>
+          <p>
+            <strong>El Problema Principal:</strong> La propuesta actual sufre de un bajo "volumen aparente" de recetas (100 recetas vs +365 de <i>Come Liviana</i> y 17-en-1 guías de la <i>Biblia Batch Cooking</i>). Además, el título principal ("Dejá de improvisar lo que comés") no ataca de manera tan visceral los dolores físicos del cliente (como la hinchazón, gases o fatiga) como lo hacen tus competidores directos, lo que reduciría el porcentaje de conversión inicial en tráfico frío.
+          </p>
+          <p>
+            <strong>La Oportunidad:</strong> Si lográs empaquetar de forma diferente tu contenido (enfatizando que cada una de tus 100 recetas tiene <strong>información nutricional y de micronutrientes completa</strong>, algo que la competencia no ofrece) y realizás sutiles ajustes en el copywriting del hero section enfocándote en la inflamación y vitalidad, podés maximizar el retorno de inversión de las campañas de Meta Ads.
+          </p>
+        </div>
+      </div>
+
+      <!-- SWOT ANALYSIS -->
+      <div class="swot-grid">
+        <div class="swot-box strengths">
+          <div class="swot-title">💪 Fortalezas Principales</div>
+          <ul class="swot-list">
+            <li><strong>Estética e Identidad Visual Premium:</strong> El diseño de la landing es excelente, con una paleta armoniosa y animaciones fluidas que generan confianza inmediata.</li>
+            <li><strong>Ficha de Nutrientes Completa:</strong> Delineación exhaustiva de calorías, macronutrientes, fibra, vitaminas y minerales destacados por cada receta.</li>
+            <li><strong>Checkout de Baja Fricción:</strong> El formulario en un solo paso directamente en la landing page acorta el customer journey a lo mínimo.</li>
+            <li><strong>Envío Automático de PDFs:</strong> Flujo técnico de entrega por Gmail configurado y con caché de transacciones para evitar fallos.</li>
+          </ul>
+        </div>
+        <div class="swot-box weaknesses">
+          <div class="swot-title">⚠️ Debilidades / Puntos Críticos</div>
+          <ul class="swot-list">
+            <li><strong>Sensación de Cantidad Menor:</strong> Promocionar "100 recetas" contra competidores que ofrecen "365 recetas" o "17 productos en 1" por precios muy similares.</li>
+            <li><strong>Hook Inicial Débil:</strong> El beneficio de "no improvisar" es menos magnético para anuncios de compra impulsiva que "desinflamar el cuerpo en 7 días" o "ahorrar 10 horas y $180.000".</li>
+            <li><strong>Falta de Garantía Visible en Landing:</strong> A diferencia de ambos competidores, que ofrecen "Garantía de reembolso de 7 días sin preguntas", tu landing actual carece de esta sección de reducción de riesgo.</li>
+            <li><strong>Menor Número de Bonos Reales:</strong> Tus bonos son libros de recetas adicionales, mientras que la competencia ofrece herramientas utilitarias (lista inteligente de súper, guía de descongelado).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RADIAL SCORES BY CATEGORIES -->
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">🔌 UX y Conversión (Web)</div>
+          <div class="progress-group">
+            <div class="progress-label"><span>Diseño Visual y Estética</span><span>95%</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 95%"></div></div>
+          </div>
+          <div class="progress-group">
+            <div class="progress-label"><span>Fricción de Checkout</span><span>98%</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 98%"></div></div>
+          </div>
+          <div class="progress-group">
+            <div class="progress-label"><span>Señales de Urgencia y Confianza</span><span>75%</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 75%"></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">📚 Oferta y Posicionamiento</div>
+          <div class="progress-group">
+            <div class="progress-label"><span>Precio Óptimo de Mercado</span><span>90%</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%"></div></div>
+          </div>
+          <div class="progress-group">
+            <div class="progress-label"><span>Stack de Bonos y Regalos</span><span>80%</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 80%"></div></div>
+          </div>
+          <div class="progress-group">
+            <div class="progress-label"><span>Volumen Percibido</span><span>60%</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 60%"></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">📢 Comunicación y Tráfico</div>
+          <div class="progress-group">
+            <div class="progress-label"><span>Copywriting Orientado al Dolor</span><span>70%</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 70%"></div></div>
+          </div>
+          <div class="progress-group">
+            <div class="progress-label"><span>Prueba Social y Testimonios</span><span>85%</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%"></div></div>
+          </div>
+          <div class="progress-group">
+            <div class="progress-label"><span>Integración de Píxel y Eventos</span><span>100%</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 100%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ TAB 2: COMPETENCIA ═══ -->
+    <div id="competencia" class="tab-content">
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="card-title">⚔️ Cuadrante de Posicionamiento de Competidores</div>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px;">
+          Análisis cuantitativo e integral basado en los datos extraídos de sus landings de ventas.
+        </p>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Característica</th>
+              <th>Tu Proyecto (Cocina Liviana)</th>
+              <th>Competidor 1 (Come Liviana)</th>
+              <th>Competidor 2 (Biblia Batch Cooking)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="feature-name">Precio Actual</td>
+              <td><strong>$15.999 ARS</strong> <span class="rating-bubble excellent">Excelente</span></td>
+              <td>$18.990 ARS <span class="rating-bubble fair">Alto</span></td>
+              <td>$12.999 ARS <span class="rating-bubble good">Muy Barato</span></td>
+            </tr>
+            <tr>
+              <td class="feature-name">Enfoque / Angulo Comercial</td>
+              <td>Dejar de improvisar y comer sano con información nutricional completa.</td>
+              <td><strong>Reducir inflamación, hinchazón de vientre</strong> y recuperar energía real en mujeres.</td>
+              <td><strong>Organizar la cocina en 2 horas semanales</strong>, ahorrar dinero y evitar el delivery.</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Volumen del Contenido</td>
+              <td>100 recetas de almuerzos y cenas (con calorías y desglose de nutrientes).</td>
+              <td><strong>+365 recetas fáciles</strong> (una para cada día del año).</td>
+              <td><strong>5 Guías en 1 (17 módulos)</strong> cubriendo todas las variables del batch cooking.</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Garantía Ofrecida</td>
+              <td>Ninguna explícita en la web. <span class="rating-bubble poor">Crítico</span></td>
+              <td>Garantía de reembolso de 7 días sin preguntas. <span class="rating-bubble good">Estándar</span></td>
+              <td>Garantía de reembolso de 7 días sin preguntas. <span class="rating-bubble good">Estándar</span></td>
+            </tr>
+            <tr>
+              <td class="feature-name">Regalos / Bonos Stack</td>
+              <td>5 ebooks (Planificador, Jugos detox, Recetas sin TACC, Sin harinas, Postres/snacks).</td>
+              <td>4 ebooks (Planificador semanal, Lista inteligente, Jugos detox, Postres sin culpa).</td>
+              <td><strong>12 Bonos específicos</strong> (Peques, microondas, airfryer, descongelado, diabéticos, etc.).</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Experiencia UX / Diseño</td>
+              <td><strong>Premium.</strong> Dark mode, moderno, animado y muy veloz. <span class="rating-bubble excellent">Premium</span></td>
+              <td>Dawn theme de Shopify básico pero bien estructurado. <span class="rating-bubble fair">Básico</span></td>
+              <td> Dawn theme modificado de Shopify con timers agresivos. <span class="rating-bubble fair">Básico</span></td>
+            </tr>
+            <tr>
+              <td class="feature-name">Fricción en Compra</td>
+              <td><strong>Mínima.</strong> Formulario de pago inline de un solo paso en la landing page.</td>
+              <td>Media. Carrito de compras + pasarela clásica de Shopify.</td>
+              <td>Media. Carrito de compras + pasarela clásica de Shopify.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══ TAB 3: CUSTOMER JOURNEY ═══ -->
+    <div id="journey" class="tab-content">
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="card-title">🗺️ Mapa del Journey del Cliente</div>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Mapeo de los puntos de contacto del embudo de ventas y las principales fugas detectadas en la experiencia del usuario.
+        </p>
+      </div>
+
+      <div class="journey-map">
+        <div class="journey-step strong">
+          <span class="journey-badge">1. Tráfico</span>
+          <h4>Anuncios (Instagram)</h4>
+          <p>Descubrimiento visual mediante posts o Reels promocionados en redes sociales.</p>
+          <div class="journey-status">Fuerte (Reels listos)</div>
+        </div>
+
+        <div class="journey-step leak">
+          <span class="journey-badge">2. Hook</span>
+          <h4>Hero Section Landing</h4>
+          <p>Primeros 5 segundos de lectura. Mensaje actual: "Dejá de improvisar". Faltan ganchos biológicos.</p>
+          <div class="journey-status">Fuga Media (Baja urgencia)</div>
+        </div>
+
+        <div class="journey-step leak">
+          <span class="journey-badge">3. Deseo</span>
+          <h4>Valor de la Oferta</h4>
+          <p>Lectura del contenido y bonos. 100 recetas vs 365. Sin garantía para romper barreras psicológicas.</p>
+          <div class="journey-status">Fuga Alta (Desconfianza/Volumen)</div>
+        </div>
+
+        <div class="journey-step strong">
+          <span class="journey-badge">4. Compra</span>
+          <h4>Checkout en 1 Paso</h4>
+          <p>Usuario ingresa datos y es redirigido a Mercado Pago para abonar de inmediato.</p>
+          <div class="journey-status">Muy Fuerte (Cero fricción)</div>
+        </div>
+
+        <div class="journey-step strong">
+          <span class="journey-badge">5. Post-Venta</span>
+          <h4>Entrega Automática</h4>
+          <p>Envío inmediato por email de todos los PDFs adjuntos gracias al Webhook configurado.</p>
+          <div class="journey-status">Fuerte (Automatizado)</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title" style="color: var(--danger);">🛑 Dónde se están yendo tus potenciales ventas</div>
+        <p style="margin-bottom: 12px; font-size: 0.95rem;">
+          Técnicamente, el embudo es excelente porque los usuarios no tienen que lidiar con carritos de compras complejos. Sin embargo, el tráfico frío que viene de Instagram Ads se fugará en los pasos 2 y 3 debido a:
+        </p>
+        <ul style="margin-left: 20px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.8;">
+          <li>Falta de una <strong>Garantía de Satisfacción de 7 días</strong>: Comprar un libro digital en una web independiente genera fricción; el usuario teme que sea una estafa o que el contenido no le sirva. Si no asumís el riesgo por ellos (garantía de devolución), la conversión cae.</li>
+          <li><strong>La objeción del volumen:</strong> Si un usuario ve tu landing de 100 recetas a $15.999 y en paralelo ve un anuncio de 365 recetas a $18.990, percibirá que Come Liviana ofrece más del triple de valor por casi el mismo precio.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ═══ TAB 4: COPY Y ERRORES ═══ -->
+    <div id="copy" class="tab-content">
+      
+      <!-- INCOHERENCIES & ERRORS -->
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="card-title">❌ Incoherencias y Errores Detectados en tu Landing Actual</div>
+        
+        <div class="inconsistency-card">
+          <div class="inconsistency-header">
+            <span class="inconsistency-title">Error 1: Falta de Garantía de Satisfacción</span>
+            <span class="priority-badge alta">Prioridad Alta</span>
+          </div>
+          <div class="inconsistency-body">
+            <p>Ambos competidores directos usan una garantía explícita de "7 días sin preguntas" para neutralizar el miedo a la compra. Tu landing page carece de esta sección de confianza.</p>
+          </div>
+          <div class="inconsistency-fix">
+            Agregar un bloque de Garantía de 7 días antes o al lado de la sección de checkout.
+          </div>
+        </div>
+
+        <div class="inconsistency-card">
+          <div class="inconsistency-header">
+            <span class="inconsistency-title">Error 2: Falta de Contraste en los Botones Secundarios del FAQ</span>
+            <span class="priority-badge media">Prioridad Media</span>
+          </div>
+          <div class="inconsistency-body">
+            <p>El FAQ actual utiliza flechas grises sobre fondos oscuros, dificultando la lectura en dispositivos móviles cuando el usuario está buscando despejar dudas de compra rápido.</p>
+          </div>
+          <div class="inconsistency-fix">
+            Aumentar el contraste del estado activo de las preguntas en el FAQ.
+          </div>
+        </div>
+
+        <div class="inconsistency-card">
+          <div class="inconsistency-header">
+            <span class="inconsistency-title">Incoherencia 1: Valor Percibido vs Cantidad de Recetas</span>
+            <span class="priority-badge media">Prioridad Media</span>
+          </div>
+          <div class="inconsistency-body">
+            <p>Promocionás "100 recetas" en una tipografía grande y destacada. Aunque la calidad nutricional de las tuyas es superior, en internet el volumen es lo primero que se evalúa visualmente comparado con las "365 recetas" de tu rival.</p>
+          </div>
+          <div class="inconsistency-fix">
+            Enfocar el texto en la "Información Nutricional Completa + Micronutrientes" y reformular los títulos para que destaquen la calidad o variedad, no solo el número bruto.
+          </div>
+        </div>
+      </div>
+
+      <!-- COPYWRITING ANALSIS & IMPROVEMENTS -->
+      <div class="card">
+        <div class="card-title">✍️ Análisis del Copywriting (Antes / Después)</div>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">
+          Optimizando los textos de la landing para transformarlos en ganchos de conversión orientados al dolor físico real.
+        </p>
+
+        <h4 style="margin-bottom: 12px; color: var(--secondary);">1. El Título Principal (Hero Section)</h4>
+        <div class="copy-compare">
+          <div class="copy-bubble before">
+            <span class="copy-label">Versión Actual</span>
+            <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 8px;">Dejá de improvisar lo que comés.</h3>
+            <p style="font-size: 0.85rem;">100 recetas fáciles de almuerzos y cenas con información nutricional completa...</p>
+          </div>
+          <div class="copy-bubble after">
+            <span class="copy-label">Propuesta Optimizada</span>
+            <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 8px;">Comé rico, desinflamá tu cuerpo y recuperá tu energía.</h3>
+            <p style="font-size: 0.85rem;">El recetario saludable con información nutricional completa para ganarle a la pesadez diaria sin dietas restrictivas.</p>
+          </div>
+        </div>
+
+        <h4 style="margin-top: 24px; margin-bottom: 12px; color: var(--secondary);">2. La Llamada a la Acción (CTA) de los Botones</h4>
+        <div class="copy-compare">
+          <div class="copy-bubble before">
+            <span class="copy-label">Versión Actual</span>
+            <p style="font-size: 1rem; font-weight: bold;">🛒 Sí, quiero mi Ebook + los 5 Bonos gratis!</p>
+          </div>
+          <div class="copy-bubble after">
+            <span class="copy-label">Propuesta Optimizada</span>
+            <p style="font-size: 1rem; font-weight: bold;">🔥 Sí, quiero comer sano y desinflamarme hoy!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ TAB 5: PLAN DE ACCIÓN ═══ -->
+    <div id="plan" class="tab-content">
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="card-title">⚡ Los 3 Quick Wins para Implementar Esta Semana</div>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">
+          Cambios de alto impacto y bajo esfuerzo que podés implementar directamente en tu código hoy mismo.
+        </p>
+
+        <div class="quick-wins-grid">
+          <div class="quick-win-card">
+            <div class="quick-win-number">01</div>
+            <h4>Garantía incondicional de 7 días</h4>
+            <p>Insertar un sello visual y un párrafo que asuma el 100% del riesgo: si el cliente no está satisfecho, devolución total en 7 días.</p>
+            <div class="quick-win-meta">
+              <span>Impacto: Muy Alto</span>
+              <span>Esfuerzo: Bajo (15 min)</span>
+            </div>
+          </div>
+
+          <div class="quick-win-card">
+            <div class="quick-win-number">02</div>
+            <h4>Destacar la Información Nutricional como valor estrella</h4>
+            <p>Hacer que los badges de calorías, grasas y proteínas en la sección "Preview de Recetas" tengan mayor contraste visual para que se note que es un libro profesional, no un PDF casero.</p>
+            <div class="quick-win-meta">
+              <span>Impacto: Alto</span>
+              <span>Esfuerzo: Bajo (20 min)</span>
+            </div>
+          </div>
+
+          <div class="quick-win-card">
+            <div class="quick-win-number">03</div>
+            <h4>Ajuste del Hook Biológico en el Hero</h4>
+            <p>Modificar el H1 del Hero en index.html para incorporar las palabras claves del dolor de tu audiencia: "Desinflamá tu cuerpo" y "Recuperá tu energía".</p>
+            <div class="quick-win-meta">
+              <span>Impacto: Alto</span>
+              <span>Esfuerzo: Mínimo (5 min)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📋 Plan de Acción General Priorizado</div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Prioridad</th>
+                <th>Acción de Optimización</th>
+                <th>Impacto</th>
+                <th>Esfuerzo</th>
+                <th>Área del Negocio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="priority-badge alta">Alta</span></td>
+                <td>Agregar el bloque visual de Garantía de 7 días (reembolso garantizado).</td>
+                <td>Muy Alto</td>
+                <td>Bajo</td>
+                <td>Oferta / Conversión</td>
+              </tr>
+              <tr>
+                <td><span class="priority-badge alta">Alta</span></td>
+                <td>Modificar los copys principales (H1 y sub-cabecera) enfocándose en desinflamación y energía.</td>
+                <td>Alto</td>
+                <td>Bajo</td>
+                <td>Copywriting</td>
+              </tr>
+              <tr>
+                <td><span class="priority-badge media">Media</span></td>
+                <td>Enfatizar el valor de la "Ficha de Nutrientes" para competir contra el volumen crudo de recetas de los rivales.</td>
+                <td>Medio-Alto</td>
+                <td>Bajo</td>
+                <td>Posicionamiento</td>
+              </tr>
+              <tr>
+                <td><span class="priority-badge media">Media</span></td>
+                <td>Agregar un contador regresivo más dinámico o banners flotantes que aumenten el factor de escasez (FOMO).</td>
+                <td>Medio</td>
+                <td>Medio</td>
+                <td>Conversión</td>
+              </tr>
+              <tr>
+                <td><span class="priority-badge baja">Baja</span></td>
+                <td>Aumentar el stack de testimonios de 3 a 5 (incorporando capturas reales de chat/Instagram si es posible).</td>
+                <td>Medio</td>
+                <td>Bajo</td>
+                <td>Prueba Social</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ FOOTER REPORT ═══ -->
+    <div class="footer-report">
+      <p>Informe confidencial generado automáticamente por la skill de auditoría de negocio digital.</p>
+      <p style="margin-top: 5px; font-size: 0.8rem;">Cocina Liviana y Saludable &copy; 2026</p>
+    </div>
+  </div>
+
+  <script>
+    function showTab(tabId) {
+      // Hide all tabs
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      // Deactivate all buttons
+      const buttons = document.querySelectorAll('.nav-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      // Show active tab
+      const activeTab = document.getElementById(tabId);
+      if (activeTab) {
+        activeTab.classList.add('active');
+      }
+
+      // Activate clicked button
+      event.currentTarget.classList.add('active');
+    }
+  </script>
+</body>
+</html>
