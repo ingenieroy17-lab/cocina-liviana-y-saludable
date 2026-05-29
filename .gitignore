@@ -1,3 +1,8 @@
 node_modules/
 .env
 .DS_Store
+.chrome-profile/
+__pycache__/
+assets/images/imagenes dentro de libros/
+assets/ebooks/*.html
+assets/pdf/

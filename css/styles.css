@@ -15,6 +15,7 @@
   --badge-anti: #5B9BD5;
   --badge-detox: #8BC34A;
   --badge-vegan: #2E8B57;
+  --badge-veget: #8E24AA;
   --badge-celiac: #DAA520;
   --shadow: 0 4px 24px rgba(0,0,0,0.08);
   --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
@@ -356,6 +357,7 @@ section { padding: 100px 0; }
 .badge-anti { background: rgba(91,155,213,0.15); color: var(--badge-anti); }
 .badge-detox { background: rgba(139,195,74,0.15); color: var(--badge-detox); }
 .badge-vegan { background: rgba(46,139,87,0.15); color: var(--badge-vegan); }
+.badge-veget { background: rgba(156, 39, 176, 0.15); color: var(--badge-veget); }
 .badge-celiac { background: rgba(218,165,32,0.15); color: var(--badge-celiac); }
 .preview-card-body .stats {
   display: flex;

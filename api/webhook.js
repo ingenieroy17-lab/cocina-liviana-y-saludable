@@ -55,25 +55,7 @@ export default async function handler(req, res) {
         const customerEmail = metadata.email || payment.payer?.email;
         const customerName = metadata.nombre || payment.payer?.first_name || 'Cliente';
 
-        let attachments = [];
-        try {
-            const pdfDir = path.join(process.cwd(), 'assets', 'pdf');
-            if (fs.existsSync(pdfDir)) {
-                const files = fs.readdirSync(pdfDir);
-                for (const file of files) {
-                    if (file.endsWith('.pdf')) {
-                        const filePath = path.join(pdfDir, file);
-                        const fileContent = fs.readFileSync(filePath);
-                        attachments.push({
-                            filename: file,
-                            content: fileContent
-                        });
-                    }
-                }
-            }
-        } catch(err) {
-            console.error("Error leyendo PDFs:", err);
-        }
+        const downloadLink = process.env.DRIVE_DOWNLOAD_LINK || 'https://drive.google.com/drive/folders/TU_CARPETA_DE_GOOGLE_DRIVE?usp=sharing';
 
         // Enviar Email al Cliente
         await transporter.sendMail({
@@ -83,12 +65,17 @@ export default async function handler(req, res) {
             html: `
                 <h1>¡Hola ${customerName}!</h1>
                 <p>Muchas gracias por tu compra. Tu pago fue procesado correctamente.</p>
-                <p>Adjunto a este correo encontrarás tu Ebook "Cocina Liviana y Saludable" junto con todos los bonos exclusivos.</p>
+                <p>Para descargar tu Ebook "Cocina Liviana y Saludable" y todos los bonos exclusivos, haz clic en el siguiente enlace de Google Drive:</p>
+                <p style="font-size: 16px; margin: 20px 0;">
+                  <a href="${downloadLink}" target="_blank" style="background-color: #28a745; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
+                    Descargar Ebook y Bonos 📥
+                  </a>
+                </p>
+                <p><em>Nota: Recuerda guardar los archivos en tu dispositivo.</em></p>
                 <p>¡Esperamos que disfrutes las recetas!</p>
                 <br>
                 <p>Un saludo,<br>El equipo de Cocina Liviana y Saludable.</p>
-            `,
-            attachments: attachments
+            `
         });
 
         // Enviar Notificación al Administrador

@@ -61,6 +61,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.3; }
 .tag-anti { background: rgba(91,155,213,0.15); color: #5B9BD5; }
 .tag-detox { background: rgba(139,195,74,0.15); color: #558B2F; }
 .tag-vegan { background: rgba(46,139,87,0.15); color: #2E8B57; }
+.tag-veget { background: rgba(156, 39, 176, 0.15); color: #8E24AA; }
 .tag-celiac { background: rgba(218,165,32,0.15); color: #B8860B; }
 .recipe-meta { display: flex; gap: 24px; font-size: 9pt; color: #6B6B6B; }
 .recipe-meta span { display: flex; align-items: center; gap: 4px; }
@@ -101,3 +102,18 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.3; }
   .recipe { page-break-inside: avoid; }
   .chapter-header { page-break-before: always; }
 }
+
+.recipe-image-container {
+  margin-top: 16px;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.recipe-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+

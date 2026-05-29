@@ -12,14 +12,19 @@ const files = [
 ];
 
 (async () => {
-  const browser = await puppeteer.launch({headless: 'new'});
+  const browser = await puppeteer.launch({
+    headless: 'new',
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
+  });
   for (const item of files) {
-    const htmlPath = path.join(__dirname, item.html);
-    const pdfPath = path.join(__dirname, '..', 'pdf', item.pdf);
+    const htmlPath = path.resolve(__dirname, item.html);
+    const pdfPath = path.resolve(__dirname, '..', 'pdf', item.pdf);
     console.log(`Convirtiendo ${item.html}...`);
     const page = await browser.newPage();
-    const content = fs.readFileSync(htmlPath, 'utf8');
-    await page.setContent(content, {waitUntil: 'networkidle0', timeout: 60000});
+    
+    // Usar page.goto con la URL file:// en vez de page.setContent evita enviar strings gigantescos por WebSocket
+    const fileUrl = `file:///${htmlPath.replace(/\\/g, '/')}`;
+    await page.goto(fileUrl, {waitUntil: 'load', timeout: 120000});
     
     const pdfDir = path.dirname(pdfPath);
     if (!fs.existsSync(pdfDir)) {

@@ -3,12 +3,13 @@ const path = require('path');
 const CSS = fs.readFileSync(path.join(__dirname, 'ebook-styles.css'), 'utf8');
 
 function tag(t) {
-  const map = {A:['Antiinflamatoria','tag-anti'],D:['Detox','tag-detox'],V:['Vegana','tag-vegan'],C:['Celíaca','tag-celiac']};
+  const map = {A:['Antiinflamatoria','tag-anti'],D:['Detox','tag-detox'],V:['Vegana','tag-vegan'],G:['Vegetariana','tag-veget'],C:['Celíaca','tag-celiac']};
   return t.split('').map(c => map[c] ? `<span class="tag ${map[c][1]}">${map[c][0]}</span>` : '').join('');
 }
 
 function recipeHTML(r, i) {
-  return `<div class="recipe"><div class="recipe-header"><h3>${i}. ${r.n}</h3><div class="recipe-tags">${tag(r.t)}</div><div class="recipe-meta"><span>⏱️ ${r.m} min</span><span>🍽️ ${r.s} porciones</span><span>🔥 ${r.k} kcal</span></div></div><div class="recipe-body"><div class="ingredients"><h4>Ingredientes</h4><ul>${r.i.map(x=>`<li>${x}</li>`).join('')}</ul></div><div class="preparation"><h4>Preparación</h4><ol>${r.p.map(x=>`<li>${x}</li>`).join('')}</ol></div></div><div class="nutrition"><div class="nut-item"><div class="nut-value">${r.k}</div><div class="nut-label">Calorías</div></div><div class="nut-item"><div class="nut-value">${r.nu.p}g</div><div class="nut-label">Proteínas</div></div><div class="nut-item"><div class="nut-value">${r.nu.c}g</div><div class="nut-label">Carbos</div></div><div class="nut-item"><div class="nut-value">${r.nu.g}g</div><div class="nut-label">Grasas</div></div><div class="nut-item"><div class="nut-value">${r.nu.f}g</div><div class="nut-label">Fibra</div></div></div>${r.tip?`<div class="recipe-tip"><strong>💡 Tip:</strong> ${r.tip}</div>`:''}</div>`;
+  const imgTag = r.imgBase64 ? `<div class="recipe-image-container"><img src="${r.imgBase64}" class="recipe-img" alt="${r.n}"></div>` : '';
+  return `<div class="recipe"><div class="recipe-header"><h3>${i}. ${r.n}</h3><div class="recipe-tags">${tag(r.t)}</div><div class="recipe-meta"><span>⏱️ ${r.m} min</span><span>🍽️ ${r.s} porciones</span><span>🔥 ${r.k} kcal</span></div></div><div class="recipe-body"><div class="ingredients"><h4>Ingredientes</h4><ul>${r.i.map(x=>`<li>${x}</li>`).join('')}</ul></div><div class="preparation"><h4>Preparación</h4><ol>${r.p.map(x=>`<li>${x}</li>`).join('')}</ol></div></div>${imgTag}<div class="nutrition"><div class="nut-item"><div class="nut-value">${r.k}</div><div class="nut-label">Calorías</div></div><div class="nut-item"><div class="nut-value">${r.nu.p}g</div><div class="nut-label">Proteínas</div></div><div class="nut-item"><div class="nut-value">${r.nu.c}g</div><div class="nut-label">Carbos</div></div><div class="nut-item"><div class="nut-value">${r.nu.g}g</div><div class="nut-label">Grasas</div></div><div class="nut-item"><div class="nut-value">${r.nu.f}g</div><div class="nut-label">Fibra</div></div></div>${r.tip?`<div class="recipe-tip"><strong>💡 Tip:</strong> ${r.tip}</div>`:''}</div>`;
 }
 
 function chapterHTML(title, num, desc) {
