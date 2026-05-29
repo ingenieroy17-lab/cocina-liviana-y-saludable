@@ -1,0 +1,225 @@
+REPORTE DE VERIFICACIÓN DE IMÁGENES POR IA (POR LOTES)
+Generado: 2026-05-29T02:54:25.139Z
+
+[OK] Ebook Principal - Receta 1 - La imagen muestra una Ensalada César con pollo y croutons, lo cual coincide con la descripción.
+[OK] Ebook Principal - Receta 2 - La imagen muestra una ensalada con garbanzos, tomates, pepino y queso feta, consistente con una Ensalada Mediterránea.
+[OK] Ebook Principal - Receta 3 - La imagen muestra una ensalada con pollo y cubos de batata, coincidiendo con la receta.
+[OK] Ebook Principal - Receta 4 - La imagen muestra salmón ahumado y láminas de palta, tal como indica la descripción.
+[OK] Ebook Principal - Receta 5 - La imagen muestra claramente una ensalada basada en lentejas con vegetales, coincidiendo con la descripción.
+[OK] Ebook Principal - Receta 6 - La imagen presenta una Ensalada Caprese clásica (tomate, mozzarella y albahaca/rúcula), coincidiendo con la descripción.
+[OK] Ebook Principal - Receta 7 - La imagen muestra una ensalada estilo asiático con repollo, pollo y maní, coincidiendo con la receta Thai.
+[OK] Ebook Principal - Receta 8 - La imagen muestra quinoa con vegetales asados, coincidiendo perfectamente con la descripción.
+[OK] Ebook Principal - Receta 9 - La imagen muestra una ensalada con atún y huevo duro, tal como se describe en la receta.
+[OK] Ebook Principal - Receta 10 - La imagen muestra una ensalada con trozos de manzana, apio y nueces, componentes típicos de una ensalada Waldorf.
+[OK] Ebook Principal - Receta 11 - La imagen muestra una ensalada con garbanzos, tomates y pepinos, coincidiendo con la descripción.
+[OK] Ebook Principal - Receta 12 - La imagen muestra claramente una ensalada de espinaca con frutillas.
+[OK] Ebook Principal - Receta 13 - La imagen corresponde a una ensalada con cubos de pollo y mango.
+[OK] Ebook Principal - Receta 14 - La imagen muestra una ensalada griega con un bloque de queso feta y verduras en trozos grandes.
+[OK] Ebook Principal - Receta 15 - La imagen muestra una ensalada con brócoli crudo y semillas, coincidiendo con la receta.
+[OK] Ebook Principal - Receta 16 - La imagen muestra un bowl que contiene quinoa, palta y edamames.
+[OK] Ebook Principal - Receta 17 - La imagen muestra un poke bowl con cubos de salmón, palta y pepino.
+[OK] Ebook Principal - Receta 18 - La imagen muestra un bowl con porotos negros, tomate, palta y arroz.
+[OK] Ebook Principal - Receta 19 - La imagen muestra un bowl con pollo teriyaki, arroz integral y brócoli.
+[OK] Ebook Principal - Receta 20 - La imagen muestra un bowl con lentejas, vegetales asados (zapallo y zucchini) y un aderezo tipo tahini.
+[OK] Ebook Principal - Receta 21 - La imagen muestra un bowl con trigo sarraceno y vegetales, coincidiendo con la descripción.
+[OK] Ebook Principal - Receta 22 - La imagen presenta tofu crocante, arroz y vegetales, tal como indica la receta.
+[OK] Ebook Principal - Receta 23 - La imagen muestra un bowl con huevo y palta claramente definidos.
+[OK] Ebook Principal - Receta 24 - La imagen muestra pechuga de pollo y una porción generosa de hummus.
+[OK] Ebook Principal - Receta 25 - La imagen muestra salmón, quinoa y otros ingredientes que componen un power bowl.
+[OK] Ebook Principal - Receta 26 - La imagen muestra garbanzos en una salsa cremosa al curry, lo cual coincide.
+[OK] Ebook Principal - Receta 27 - La imagen muestra una gran variedad de vegetales coloridos, acorde a un bowl arcoíris.
+[OK] Ebook Principal - Receta 28 - La imagen presenta atún, arroz, palta y pepino, coincidiendo con un bowl de atún.
+[OK] Ebook Principal - Receta 29 - La imagen muestra falafel con una base mediterránea y hummus, correcto.
+[OK] Ebook Principal - Receta 30 - La imagen muestra camarones, mango (típico de bowl tropical) y palta.
+[OK] Ebook Principal - Receta 31 - La imagen muestra una crema de color naranja, consistente con la calabaza, decorada con semillas, lo cual es apropiado para esta receta.
+[OK] Ebook Principal - Receta 32 - La imagen muestra una sopa de color rojo intenso decorada con hojas de albahaca fresca, lo cual es característico de esta receta.
+[OK] Ebook Principal - Receta 33 - La imagen muestra un guiso con lentejas, zanahoria y trozos de verduras, consistente con una sopa de lentejas clásica.
+[OK] Ebook Principal - Receta 34 - La imagen muestra una crema de color verde con arbolitos de brócoli decorativos, siguiendo la sugerencia del detalle de la receta.
+[OK] Ebook Principal - Receta 35 - La imagen muestra una sopa con caldo, pasta, verduras y legumbres, lo cual corresponde visualmente a una sopa Minestrone.
+[OK] Ebook Principal - Receta 36 - La imagen muestra una crema suave de color naranja, acorde a la zanahoria, con un detalle decorativo superior.
+[OK] Ebook Principal - Receta 37 - La imagen muestra una sopa con caldo claro, trozos de pollo y verduras, representando fielmente una sopa de pollo casera.
+[OK] Ebook Principal - Receta 38 - La imagen muestra una crema de color verde intenso, característica de una sopa de espinacas cremosa.
+[OK] Ebook Principal - Receta 39 - La imagen muestra una sopa con base de leche de coco (color blanquecino) con setas, verduras y hierbas, consistente con una sopa estilo Thai.
+[OK] Ebook Principal - Receta 40 - La imagen muestra una crema de color amarillento (zapallo) decorada con puerro picado, lo cual coincide perfectamente con la receta.
+[OK] Ebook Principal - Receta 41 - La imagen muestra correctamente un gazpacho andaluz con sus guarniciones clásicas.
+[OK] Ebook Principal - Receta 42 - La imagen muestra una crema con setas, consistente con una crema de hongos.
+[OK] Ebook Principal - Receta 43 - La imagen muestra pollo asado acompañado de rodajas de limón, coherente con la receta.
+[OK] Ebook Principal - Receta 44 - La imagen muestra pechuga de pollo cortada con un relleno de espinacas y ricotta visible.
+[OK] Ebook Principal - Receta 45 - La imagen muestra pollo con vegetales y una salsa amarilla, típico de un curry sobre arroz.
+[OK] Ebook Principal - Receta 46 - La imagen muestra pollo empanado con una textura rugosa consistente con el uso de avena en el rebozado.
+[OK] Ebook Principal - Receta 47 - La imagen muestra un salteado de pollo y vegetales brillantes, típico de una preparación al wok.
+[OK] Ebook Principal - Receta 48 - La imagen muestra muslos de pollo dorados con una costra glaseada, consistente con una preparación de mostaza y miel.
+[OK] Ebook Principal - Receta 49 - La imagen muestra hojas de lechuga rellenas de pollo desmenuzado y vegetales, claramente unos wraps de lechuga.
+[OK] Ebook Principal - Receta 50 - La imagen muestra pechuga de ave a la plancha cubierta con una salsa verde (chimichurri).
+[OK] Ebook Principal - Receta 51 - La imagen muestra correctamente albóndigas en salsa de tomate, consistentes con la receta.
+[OK] Ebook Principal - Receta 52 - La imagen muestra brochetas de pollo con un color característico de la marinada Tikka y salsa verde, lo cual es correcto.
+[OK] Ebook Principal - Receta 53 - La imagen muestra una suprema de pollo con pesto de rúcula, lo cual corresponde perfectamente a la descripción.
+[OK] Ebook Principal - Receta 54 - La imagen muestra claramente brochettes de pollo con vegetales, lo cual es consistente con la receta.
+[OK] Ebook Principal - Receta 55 - La imagen muestra un filete de salmón al horno con rodajas de limón y eneldo, junto a espárragos.
+[OK] Ebook Principal - Receta 56 - La imagen muestra un pescado (merluza) con una costra visible de almendras fileteadas, correcto.
+[OK] Ebook Principal - Receta 57 - La imagen muestra un ceviche de pescado blanco con cebolla morada y batata al lado, lo cual es la presentación clásica.
+[OK] Ebook Principal - Receta 58 - La imagen muestra atún sellado (rosado en el centro) con una costra de sésamo y aguacate, correcto.
+[OK] Ebook Principal - Receta 59 - La imagen muestra filetes de pescado blanco con verduras al vapor, correspondiente a la receta.
+[OK] Ebook Principal - Receta 60 - La imagen muestra camarones cocidos en una base de aceite con ajo y perejil, consistente con la receta de camarones al ajillo.
+[OK] Ebook Principal - Receta 61 - La imagen muestra salmón glaseado con salsa oscura estilo teriyaki y pak choi, tal como indica la receta.
+[OK] Ebook Principal - Receta 62 - La imagen muestra empanadas al horno, con una abierta revelando el relleno de atún y verduras.
+[OK] Ebook Principal - Receta 63 - La imagen muestra filetes de pescado blanco (tilapia) cocinados al estilo provenzal con tomates cherry y hierbas.
+[OK] Ebook Principal - Receta 64 - La imagen muestra un pescado cocinado dentro de un envoltorio de papel aluminio (técnica papillote) con vegetales y limón.
+[OK] Ebook Principal - Receta 65 - La imagen muestra trozos de lomo con una salsa cremosa de mostaza y vegetales a la plancha.
+[OK] Ebook Principal - Receta 66 - La imagen muestra hamburguesas que visualmente se aprecian con textura de cereales (avena) acompañadas de ensalada.
+[OK] Ebook Principal - Receta 67 - La imagen muestra un corte de carne vacuna tipo bife con una cobertura verde (chimichurri) y el término de cocción visible.
+[OK] Ebook Principal - Receta 68 - La imagen muestra albóndigas de carne en una salsa roja de tomate, listas para servir.
+[OK] Ebook Principal - Receta 69 - La imagen muestra lonchas de lomo de cerdo cocinado, acompañadas de batatas asadas.
+[OK] Ebook Principal - Receta 70 - La imagen muestra un salteado (stir-fry) de trozos de carne cortados finamente junto con brócoli en un wok.
+[OK] Ebook Principal - Receta 71 - La imagen muestra carne en trozos junto a vegetales asados en una sartén, coincidiendo con la descripción.
+[OK] Ebook Principal - Receta 72 - La imagen muestra tacos con carne, guacamole y tomate, tal como indica la receta.
+[OK] Ebook Principal - Receta 73 - La imagen muestra un plato de pasta tipo fusilli con salsa verde (pesto), coincidiendo con la receta.
+[OK] Ebook Principal - Receta 74 - La imagen muestra un plato de arroz con hongos, consistente con la receta de risotto.
+[OK] Ebook Principal - Receta 75 - La imagen muestra fideos asiáticos tipo arroz salteados con verduras, coincidiendo con la receta.
+[OK] Ebook Principal - Receta 76 - La imagen muestra pasta integral con trozos de pollo, tomates cherry y vegetales, tal cual se describe.
+[OK] Ebook Principal - Receta 77 - La imagen muestra un plato de quinoa con vegetales salteados, coincidiendo con la receta.
+[OK] Ebook Principal - Receta 78 - La imagen muestra ñoquis con salsa de tomate y albahaca, los cuales tienen un tono anaranjado característico de la batata.
+[OK] Ebook Principal - Receta 79 - La imagen muestra una ensalada basada en trigo burgol con abundante perejil, tomate y pepino, coincidiendo perfectamente con la receta de tabulé.
+[OK] Ebook Principal - Receta 80 - La imagen muestra pasta tipo espagueti con salsa de tomate y albahaca fresca, tal como se indica.
+[OK] Ebook Principal - Receta 81 - La imagen muestra claramente un curry de garbanzos con espinacas y una porción de arroz.
+[OK] Ebook Principal - Receta 82 - La imagen representa una porción de tortilla de vegetales al horno, mostrando la textura y los ingredientes visibles.
+[OK] Ebook Principal - Receta 83 - La imagen muestra berenjenas rellenas cocidas al horno con una cobertura gratinada.
+[OK] Ebook Principal - Receta 84 - La imagen muestra un wok con cubos de tofu dorado y diversos vegetales.
+[OK] Ebook Principal - Receta 85 - La imagen presenta una cazuela con lentejas y trozos de calabaza, acorde a la descripción.
+[OK] Ebook Principal - Receta 86 - La imagen muestra una pizza con una base texturizada que corresponde a una masa de coliflor y cobertura de vegetales.
+[OK] Ebook Principal - Receta 87 - La imagen ilustra un guiso de porotos (frijoles) colorados con verduras en un recipiente rústico.
+[OK] Ebook Principal - Receta 88 - La imagen muestra croquetas crocantes con un relleno cremoso de espinaca y ricotta.
+[OK] Ebook Principal - Receta 89 - La imagen muestra tacos donde el relleno de lentejas se asemeja visualmente a la carne picada.
+[OK] Ebook Principal - Receta 90 - La imagen muestra un omelette de claras perfectamente cocido, relleno con vegetales.
+[OK] Ebook Principal - Receta 91 - La imagen muestra un plato con chili que incluye porotos, maíz y tomate, coincidiendo con la descripción.
+[OK] Ebook Principal - Receta 92 - La imagen muestra huevos cocidos en una salsa espesa de tomate (shakshuka), consistente con la receta.
+[OK] Ebook Principal - Receta 93 - La imagen muestra un wrap cortado a la mitad con relleno visible de pollo y palta.
+[OK] Ebook Principal - Receta 94 - La imagen muestra un wrap con vegetales grillados y una porción de hummus al costado.
+[OK] Ebook Principal - Receta 95 - La imagen muestra una porción de tarta de espinaca y ricotta sin tapa superior, tal como se describe.
+[OK] Ebook Principal - Receta 96 - La imagen muestra tacos o tortillas rellenas de huevo revuelto, porotos negros y palta, lo cual corresponde a la descripción.
+[OK] Ebook Principal - Receta 97 - La imagen muestra un wrap relleno de salmón ahumado, alcaparras y queso crema.
+[OK] Ebook Principal - Receta 98 - La imagen muestra una tarta de zapallitos con queso, con el relleno claramente compuesto por rodajas finas de vegetales.
+[OK] Ebook Principal - Receta 99 - La imagen muestra un wrap integral relleno de falafel, vegetales y salsa de tahini.
+[OK] Ebook Principal - Receta 100 - La imagen muestra empanadas al horno con relleno de verdura y queso, coincidiendo con la receta.
+[OK] Bono 2 - Jugos Detox - Receta 1 - La imagen muestra un jugo verde que se ajusta perfectamente a la descripción de un Jugo Verde Clásico con ingredientes como jengibre y limón.
+[OK] Bono 2 - Jugos Detox - Receta 2 - La imagen muestra un jugo verde claro con apio y rodajas de manzana fresca, coincidiendo plenamente con los ingredientes de la receta.
+[OK] Bono 2 - Jugos Detox - Receta 3 - La imagen muestra un jugo que contiene rodajas de pepino, coherente con la descripción y el uso del pepino como base.
+[OK] Bono 2 - Jugos Detox - Receta 4 - La imagen muestra un jugo espeso de color verde oscuro (kale) con banana, reflejando correctamente los componentes del 'Green Power'.
+[OK] Bono 2 - Jugos Detox - Receta 5 - La imagen presenta un jugo verde con una decoración de piña, lo cual es muy común y coherente con una receta de jugo verde tropical.
+[OK] Bono 2 - Jugos Detox - Receta 6 - La imagen muestra un jugo de color naranja vibrante, acompañado de rodajas de zanahoria y jengibre, lo que coincide perfectamente.
+[OK] Bono 2 - Jugos Detox - Receta 7 - La imagen muestra un jugo amarillo intenso con rodajas de limón y cúrcuma fresca, coincidiendo con los ingredientes de la limonada energizante.
+[OK] Bono 2 - Jugos Detox - Receta 8 - La imagen muestra un jugo de color rosado/rojizo con frutillas y pomelo, coincidiendo exactamente con la receta.
+[OK] Bono 2 - Jugos Detox - Receta 9 - La imagen muestra dos vasos pequeños de tipo shot con un líquido amarillo cítrico, lo cual corresponde fielmente a un shot de jengibre y limón.
+[OK] Bono 2 - Jugos Detox - Receta 10 - La imagen muestra un jugo de color rojo intenso característico de la remolacha, acompañado de zanahorias, coincidiendo con la receta.
+[OK] Bono 2 - Jugos Detox - Receta 11 - La imagen muestra jugo de piña con cúrcuma y jengibre, ingredientes principales de la receta.
+[OK] Bono 2 - Jugos Detox - Receta 12 - La imagen muestra un jugo de color oscuro, consistente con frutos rojos como cerezas y arándanos.
+[OK] Bono 2 - Jugos Detox - Receta 13 - La imagen muestra un smoothie verde que incluye espinaca y jengibre, acorde a la receta.
+[OK] Bono 2 - Jugos Detox - Receta 14 - La imagen refleja un smoothie verde con rodajas de banana, cumpliendo con la descripción.
+[OK] Bono 2 - Jugos Detox - Receta 15 - La imagen muestra un smoothie de frutos rojos con semillas de chía espolvoreadas.
+[OK] Bono 2 - Jugos Detox - Receta 16 - La imagen muestra un smoothie tropical de color amarillo con piña, alineado con la receta.
+[OK] Bono 2 - Jugos Detox - Receta 17 - La imagen presenta un smoothie de color oscuro (cacao) con granos de cacao, tal como se describe.
+[OK] Bono 2 - Jugos Detox - Receta 18 - La imagen muestra un smoothie verde preparado con palta, espinaca y banana.
+[OK] Bono 2 - Jugos Detox - Receta 19 - La imagen muestra una jarra con agua, rodajas de pepino, limón y hojas de menta.
+[OK] Bono 2 - Jugos Detox - Receta 20 - La imagen muestra agua infusionada con frutillas y hojas de albahaca.
+[OK] Bono 2 - Jugos Detox - Receta 21 - La imagen muestra correctamente un frasco con una infusión de jengibre y rodajas de limón.
+[OK] Bono 2 - Jugos Detox - Receta 22 - La imagen muestra una bebida que contiene rodajas de naranja, ramas de canela y anís estrellado.
+[OK] Bono 3 - Sin TACC - Receta 1 - La imagen muestra pollo al horno con papas y hierbas, coincidiendo con la descripción.
+[OK] Bono 3 - Sin TACC - Receta 2 - La imagen presenta una ensalada de arroz con atún, maíz, tomate y huevo duro.
+[OK] Bono 3 - Sin TACC - Receta 3 - La imagen muestra milanesas con una textura de costra que corresponde visualmente al uso de harina de almendras.
+[OK] Bono 3 - Sin TACC - Receta 4 - La imagen muestra un plato de estilo wok con carne, verduras y fideos de arroz.
+[OK] Bono 3 - Sin TACC - Receta 5 - La imagen muestra una tortilla española de papas tradicional.
+[OK] Bono 3 - Sin TACC - Receta 6 - La imagen muestra un filete de salmón acompañado de un puré de color naranja, consistente con calabaza.
+[OK] Bono 3 - Sin TACC - Receta 7 - La imagen muestra un guiso que contiene claramente lentejas, arroz y vegetales troceados.
+[OK] Bono 3 - Sin TACC - Receta 8 - La imagen muestra hamburguesas vegetales con una textura consistente con quinoa y presencia de espinaca.
+[OK] Bono 3 - Sin TACC - Receta 9 - La imagen muestra efectivamente pollo cocinado con diversas verduras en una sartén grande, coincidiendo con la descripción.
+[OK] Bono 3 - Sin TACC - Receta 10 - La imagen muestra una ensalada que contiene quinoa y vegetales asados, tal como indica la receta.
+[OK] Bono 3 - Sin TACC - Receta 11 - La imagen muestra un filete de pescado blanco cocinado con limón y acompañado de una ensalada fresca.
+[OK] Bono 3 - Sin TACC - Receta 12 - La imagen muestra un revuelto que combina claramente espárragos verdes con huevo.
+[OK] Bono 3 - Sin TACC - Receta 13 - La imagen muestra zapallitos ahuecados y rellenos con una preparación a base de carne picada.
+[OK] Bono 3 - Sin TACC - Receta 14 - La imagen muestra un omelette doblado relleno con trozos visibles de champiñones.
+[OK] Bono 3 - Sin TACC - Receta 15 - La imagen muestra brochettes de pollo con vegetales a la parrilla acompañadas de una ensalada.
+[OK] Bono 3 - Sin TACC - Receta 16 - La imagen muestra una crema de calabaza, consistente con una sopa de calabaza sin TACC.
+[ERROR] Bono 3 - Sin TACC - Receta 17 - La imagen muestra claramente croutons de pan, lo cual contradice la premisa de la receta de ser 'Sin TACC' y usar semillas en lugar de croutons.
+[OK] Bono 3 - Sin TACC - Receta 18 - La imagen muestra un puré de papas cubierto con pollo desmenuzado, exactamente como indica la receta.
+[OK] Bono 3 - Sin TACC - Receta 19 - La imagen muestra tortitas hechas de granos de choclo, coincidiendo con la descripción.
+[OK] Bono 3 - Sin TACC - Receta 20 - La imagen muestra una ensalada con trozos de pollo y palta, tal como indica la receta.
+[OK] Bono 4 - Sin Harinas - Receta 1 - La imagen muestra un bowl equilibrado con pollo, arroz y vegetales, coincidiendo con el nombre.
+[OK] Bono 4 - Sin Harinas - Receta 2 - La imagen muestra una ensalada con huevo duro y atún (fuentes de proteína), cumpliendo con la descripción.
+[OK] Bono 4 - Sin Harinas - Receta 3 - La imagen muestra una bandeja con pollo, batatas y espárragos al horno, reflejando perfectamente la receta.
+[OK] Bono 4 - Sin Harinas - Receta 4 - La imagen muestra un filete de salmón servido sobre una base de quinoa y espinacas.
+[OK] Bono 4 - Sin Harinas - Receta 5 - La imagen muestra un wok con cerdo, brócoli y pimientos, y un bowl de arroz aparte, coherente con la receta.
+[OK] Bono 4 - Sin Harinas - Receta 6 - La imagen muestra una cazuela con langostinos, calamares y mejillones, coincidiendo con la descripción.
+[OK] Bono 4 - Sin Harinas - Receta 7 - La imagen muestra una preparación con jamón, arvejas y huevo, representando un revuelto Gramajo.
+[OK] Bono 4 - Sin Harinas - Receta 8 - La imagen muestra rodajas de peceto acompañadas de ensalada rusa, coincidiendo con el nombre.
+[OK] Bono 4 - Sin Harinas - Receta 9 - La imagen muestra correctamente pechuga de pollo y un puré de color blanquecino consistente con coliflor.
+[OK] Bono 4 - Sin Harinas - Receta 10 - La imagen representa un estofado de carne con verduras, acorde a la descripción.
+[OK] Bono 4 - Sin Harinas - Receta 11 - La imagen muestra fideos hechos de vegetales (zoodles) con pesto y tomates, coincidiendo con la receta.
+[OK] Bono 4 - Sin Harinas - Receta 12 - La imagen muestra un plato horneado de capas de berenjena, típico de una preparación a la parmesana.
+[OK] Bono 4 - Sin Harinas - Receta 13 - La imagen presenta una tarta con base y relleno vegetal, coherente con una tarta de coliflor sin harina.
+[OK] Bono 4 - Sin Harinas - Receta 14 - La imagen muestra piezas de lomo bañadas en una salsa cremosa con champiñones, tal como se describe.
+[OK] Bono 4 - Sin Harinas - Receta 15 - La imagen muestra camarones salteados con trozos de calabacín en una sartén.
+[OK] Bono 4 - Sin Harinas - Receta 16 - La imagen muestra huevos duros rellenos de una crema verde (palta), acorde a la receta.
+[OK] Bono 4 - Sin Harinas - Receta 17 - La imagen muestra pollo al limón acompañado de una ensalada de hojas verdes, consistente con rúcula.
+[OK] Bono 4 - Sin Harinas - Receta 18 - La imagen muestra una tortilla cocinada en sartén con espinacas y champiñones, coincidiendo con la receta.
+[OK] Bono 4 - Sin Harinas - Receta 19 - La imagen muestra una sopa cremosa con pollo y verduras picadas, consistente con la descripción.
+[OK] Bono 4 - Sin Harinas - Receta 20 - La imagen muestra filetes de pescado cubiertos con una salsa o topping de palta y vegetales, alineado con la receta.
+[OK] Bono 4 - Sin Harinas - Receta 21 - La imagen muestra una pizza cuya masa tiene una textura coherente con el uso de coliflor procesada.
+[OK] Bono 4 - Sin Harinas - Receta 22 - La imagen muestra unos rollos hechos con una base fina (huevo) rellenos de vegetales, lo que corresponde a un wrap de huevo.
+[OK] Bono 4 - Sin Harinas - Receta 23 - La imagen muestra una masa circular en un molde que por su aspecto granulado y oscuro corresponde a una masa de chía y lino.
+[OK] Bono 4 - Sin Harinas - Receta 24 - La imagen muestra una torre de panqueques que visualmente concuerda con la receta de banana y huevo.
+[OK] Bono 4 - Sin Harinas - Receta 25 - La imagen muestra galletas crocantes cubiertas de semillas, lo cual coincide con la descripción de crackers de semillas.
+[OK] Bono 4 - Sin Harinas - Receta 26 - La imagen muestra carne picada envuelta en hojas de lechuga, cumpliendo con la descripción del wrap de lechuga.
+[OK] Bono 4 - Sin Harinas - Receta 27 - La imagen muestra rollitos de jamón rellenos de queso y vegetales frescos, coincidiendo perfectamente con la receta.
+[ERROR] Bono 4 - Sin Harinas - Receta 28 - La imagen muestra rollos de sushi con arroz, lo cual contradice la categoría de recetas 'sin harinas' y el enfoque keto, a menos que fuera una variante de coliflor, pero visualmente es sushi tradicional.
+[OK] Bono 4 - Sin Harinas - Receta 29 - La imagen muestra correctamente zapallitos rellenos gratinados.
+[OK] Bono 4 - Sin Harinas - Receta 30 - La imagen muestra rollos de pepino con relleno vegetal.
+[OK] Bono 5 - Postres y Snacks - Receta 1 - La imagen presenta una bola de helado de banana y cacao con trozos de chocolate.
+[OK] Bono 5 - Postres y Snacks - Receta 2 - La imagen muestra una copa con mousse de chocolate, decorada con una frambuesa.
+[OK] Bono 5 - Postres y Snacks - Receta 3 - La imagen muestra un frasco con pudding de chía decorado con frutos rojos.
+[OK] Bono 5 - Postres y Snacks - Receta 4 - La imagen muestra una Panna Cotta con salsa de frutillas.
+[OK] Bono 5 - Postres y Snacks - Receta 5 - La imagen muestra una bocha de helado de frutilla.
+[ERROR] Bono 5 - Postres y Snacks - Receta 6 - La imagen muestra una gelatina con trozos de fruta sólida dentro, no una preparación de gelatina pura con jugo natural.
+[OK] Bono 5 - Postres y Snacks - Receta 7 - La imagen muestra una versión saludable de banana split con yogur y frutas.
+[OK] Bono 5 - Postres y Snacks - Receta 8 - La imagen muestra una crema de mango y coco en un vaso.
+[OK] Bono 5 - Postres y Snacks - Receta 9 - La imagen muestra una porción de flan, lo cual es correcto.
+[OK] Bono 5 - Postres y Snacks - Receta 10 - La imagen muestra un parfait en frasco con yogur, granola y frutas, lo cual es correcto.
+[OK] Bono 5 - Postres y Snacks - Receta 11 - La imagen muestra cuadrados de brownie, que es la forma estándar de presentación.
+[OK] Bono 5 - Postres y Snacks - Receta 12 - La imagen muestra muffins con avena, lo cual es correcto.
+[OK] Bono 5 - Postres y Snacks - Receta 13 - La imagen muestra galletas de avena y pasas, lo cual es correcto.
+[OK] Bono 5 - Postres y Snacks - Receta 14 - La imagen muestra una porción de torta de manzana, lo cual es correcto.
+[OK] Bono 5 - Postres y Snacks - Receta 15 - La imagen muestra barritas de granola, lo cual es correcto.
+[OK] Bono 5 - Postres y Snacks - Receta 16 - La imagen muestra un budín con zanahoria, lo cual es correcto.
+[OK] Bono 5 - Postres y Snacks - Receta 17 - La imagen muestra cookies con chips de chocolate, lo cual es correcto.
+[OK] Bono 5 - Postres y Snacks - Receta 18 - La imagen muestra mini cheesecakes sin base, lo cual es correcto.
+[OK] Bono 5 - Postres y Snacks - Receta 19 - La imagen muestra muffins con arándanos visibles, coherente con la descripción.
+[OK] Bono 5 - Postres y Snacks - Receta 20 - La imagen muestra alfajores de avena con dulce de leche y borde de coco, coincidiendo con la receta.
+[OK] Bono 5 - Postres y Snacks - Receta 21 - La imagen muestra bolitas cubiertas de coco que parecen ser energy balls, consistentes con la receta.
+[OK] Bono 5 - Postres y Snacks - Receta 22 - La imagen muestra bolitas con trozos de chocolate y avena, consistentes con la receta de manteca de maní.
+[OK] Bono 5 - Postres y Snacks - Receta 23 - La imagen muestra energy balls amarillas recubiertas de coco, consistentes con la receta de limón.
+[OK] Bono 5 - Postres y Snacks - Receta 24 - La imagen muestra bolitas texturizadas con avena y semillas, consistentes con una versión proteica.
+[OK] Bono 5 - Postres y Snacks - Receta 25 - La imagen muestra bolitas con zanahoria rallada visible, consistentes con la receta de zanahoria y nuez.
+[OK] Bono 5 - Postres y Snacks - Receta 26 - La imagen muestra una barrita de semillas siendo cortada, consistente con la receta.
+[OK] Bono 5 - Postres y Snacks - Receta 27 - La imagen muestra bolitas de chocolate y coco, consistentes con la descripción de bolitas proteicas.
+[OK] Bono 5 - Postres y Snacks - Receta 28 - La imagen muestra bolitas oscuras con trozos de chocolate/almendras, consistentes con energía de café y cacao.
+[OK] Bono 5 - Postres y Snacks - Receta 29 - La imagen muestra correctamente barritas de avena con textura característica.
+[OK] Bono 5 - Postres y Snacks - Receta 30 - La imagen muestra claramente bolitas energéticas con avena y arándanos visibles.
+[OK] Bono 5 - Postres y Snacks - Receta 31 - Se observan chips finos de batata al horno, tal como describe la receta.
+[OK] Bono 5 - Postres y Snacks - Receta 32 - La imagen muestra un recipiente con hummus con la textura y presentación adecuada.
+[OK] Bono 5 - Postres y Snacks - Receta 33 - Muestra bastones de vegetales acompañados de un recipiente con guacamole.
+[OK] Bono 5 - Postres y Snacks - Receta 34 - La imagen corresponde a garbanzos tostados y especiados.
+[OK] Bono 5 - Postres y Snacks - Receta 35 - Muestra tomates cherry rellenos, tal como se indica en la receta.
+[OK] Bono 5 - Postres y Snacks - Receta 36 - La imagen representa correctamente edamames con sal marina.
+[OK] Bono 5 - Postres y Snacks - Receta 37 - Muestra mini frittatas de vegetales horneadas en un molde para muffins.
+[OK] Bono 5 - Postres y Snacks - Receta 38 - Se observan palitos de queso horneados con aspecto crocante.
+[OK] Bono 5 - Postres y Snacks - Receta 39 - La imagen muestra correctamente rodajas de pepino cubiertas con una mezcla de tomate picado, lo que coincide con la descripción de bruschettas de pepino.
+[OK] Bono 5 - Postres y Snacks - Receta 40 - La imagen muestra un dip cremoso en un bol, lo cual es consistente con una presentación de tzatziki.
+[OK] Bono 5 - Postres y Snacks - Receta 41 - La imagen muestra claramente rodajas de manzana con una capa de manteca de maní, tal como indica la receta.
+[OK] Bono 5 - Postres y Snacks - Receta 42 - La imagen muestra un tazón de yogur con semillas y miel, coincidiendo perfectamente con la descripción.
+[OK] Bono 5 - Postres y Snacks - Receta 43 - La imagen muestra rodajas de banana cubiertas con chocolate y nueces, una representación correcta de la receta.
+[OK] Bono 5 - Postres y Snacks - Receta 44 - La imagen muestra una tostada con palta y un huevo frito encima, lo cual es la definición clásica del plato mencionado.
+[OK] Bono 5 - Postres y Snacks - Receta 45 - La imagen muestra un frasco con una mezcla de frutos secos y trozos de chocolate, coincidiendo con la descripción.
+[OK] Bono 5 - Postres y Snacks - Receta 46 - La imagen muestra rollitos de jamón rellenos de queso, cumpliendo con la descripción de la receta.
+[OK] Bono 5 - Postres y Snacks - Receta 47 - La imagen muestra tallos de apio rellenos de queso crema y coronados con nueces, lo cual es correcto.
+[OK] Bono 5 - Postres y Snacks - Receta 48 - La imagen muestra huevos duros cortados a la mitad y sazonados, coincidiendo perfectamente con la descripción.
+[OK] Bono 5 - Postres y Snacks - Receta 49 - La imagen muestra exactamente queso cottage servido con tomates cherry y especias, tal como indica la receta.
+[OK] Bono 5 - Postres y Snacks - Receta 50 - La imagen muestra barritas de cereal con avena y chispas de chocolate, lo cual corresponde visualmente a una receta de barrita de cereal casera.
